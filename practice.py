@@ -64,6 +64,7 @@ if __name__ == '__main__':
 
 ## reverse integers 1234
 def reverse_integer(n):
+
     reversed_integer = 0
     remainder = 0
 
@@ -71,10 +72,12 @@ def reverse_integer(n):
         remainder = n % 10
         reversed_integer = reversed_integer * 10 + remainder
         n = n // 10
-    return reverse_integer
+    return reversed_integer
 
 if __name__ == '__main__':
     print(reverse_integer(1234))
+
+
 
 
 
