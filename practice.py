@@ -125,7 +125,5 @@ if __name__ == '__main__':
     n = [2,6,5,1,4,3,2,5]
     find_duplicates(n)
 
-# hello
-
 
 
