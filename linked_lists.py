@@ -54,7 +54,7 @@ class LinkedList:
         actual_node = self.head
         previous_node = None
 
-        # if actual node os not = to data we are looking for
+        # if actual node is not = to data we are looking for
         while actual_node is not None and actual_node.data != data:
             previous_node = actual_node
             actual_node = actual_node.nextNode
