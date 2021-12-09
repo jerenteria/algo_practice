@@ -6,4 +6,3 @@ class Node:
     self.data = data
     self.next_node = None
 
-    
