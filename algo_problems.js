@@ -82,3 +82,12 @@ function countingDojo() {
     }
 }
 countingDojo()
+
+// Your function will be given an input parameter incoming.
+// Please console.log this value.
+
+function incoming(incoming) {
+    console.log("incoming")
+}
+incoming();
+
