@@ -60,10 +60,7 @@ console.log("------------")
 // temperature as expressed in Celsius degrees. 
 // For review, Fahrenheit = (9/5 * Celsius) + 32.
 
-function fahrenheitToCelsius(fDegrees) {
-    var num = [2]
-    for((9/5 * num) + 32) {
-        console.log(num);
-    }
-}
-fahrenheitToCelsius();
+
+
+
+
