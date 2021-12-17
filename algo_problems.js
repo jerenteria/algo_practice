@@ -91,3 +91,37 @@ function incoming(incoming) {
 }
 incoming();
 
+// Given an array, write a function that changes all positive numbers 
+// in the array to “big”. Example: makeItBig([-1,3,5,-5]) 
+//returns that same array, changed to [-1,"big","big",-5].
+
+var nums = [1,3,5,7]; // set up our loop
+for (var idx = 0;idx < nums.length;idx++) // for each index in arr...
+{
+    console.log(nums[idx]); // ...print the value
+}
+
+var arr = [-1,3,5,-5];
+var arr2 = []
+for(var idx = 0; idx < arr.length; idx++) {
+    if(idx > 0) {
+        console.log("big")
+    }
+    else if(idx < 0) {
+        console.log(idx);
+    }
+}
+
+// Create a function that takes an array of numbers. The function should 
+// print the lowest value in the array, and return the 
+// highest value in the array.
+
+function printLow() {
+   var arr = [1, 2, 3, 4, 5]
+    for(var i = 0; i < arr.length; i++) {
+        if(i >= arr.length) {
+            console.log(i);
+        }
+    }
+}
+printLow();
