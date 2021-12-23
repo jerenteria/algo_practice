@@ -18,3 +18,25 @@ function addUpTo2(n) {
     }
     return total;
 }
+
+// inputs dont have huge impact on space due to there only being 2 total variables
+// constant space
+function sum(arr) {
+    // 1 variable named total
+    let total = 0;
+    // another variable i ( 2 total variables)
+    for(let i = 0; i < arr.length; i++) {
+        total += arr[i];
+    }
+    return total;
+}
+
+// O(n) space!
+// its linear beacause if you have 10 items in original array you will have 10 items in new array
+function double(arr) {
+    let newArr = [];
+    for(let i = 0; i < arr.length; i++) {
+        newArr.push*(2 * arr[i]);
+    }
+    return newArr;
+}
