@@ -6,4 +6,10 @@ let instructor = {
     isInstructor: true,
     favoriteNumbers: [1, 2, 3,4]
 }
-object.keys()
+
+
+// Arrays are ordered lists
+// Accessing data is very fast O(1) 
+// Searching = O(n)
+
+let names = ["Michael", "Melissa", ]
