@@ -8,3 +8,5 @@ function search(num, arr) {
     return -1;
 }
 search([1,2,4,5,6,7],3)
+
+//
