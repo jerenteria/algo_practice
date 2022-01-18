@@ -9,4 +9,4 @@ function search(num, arr) {
 }
 search([1,2,4,5,6,7],3)
 
-//
+// //
