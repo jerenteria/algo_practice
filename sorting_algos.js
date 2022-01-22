@@ -34,16 +34,34 @@ function swap(arr, idx1, idx2) {
 // if arr[j] is greater than arr[j+1], swap values
 // return sorted array
 
-function bubbleSort(arr, idx1, idx2){
-    temp2 = arr[idx1];
-
+// beginner solution
+function bubbleSort(arr){
     for(i = 0; i < arr.length; i++) {
-        for(j = 1; j < arr.length; i++) {
+        for(j = 0; j < arr.length; j++) {
             if(arr[j] > arr[j+1]) {
-                arr[idx1] = arr[idx2];
-                arr[idx2] = temp2;
+                temp2 = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp2;
             }
         }
     }
     return arr;
 }
+bubbleSort([47,45,29,8])
+
+// better solution
+function bubbleSort2(arr) {
+    // we can use i in defintion of j
+    for(i = arr.length; i > 0; i--) {
+        for(j = 0; j < i - 1; j++) {
+            if(arr[j] > arr[j+1]) {
+                temp2 = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp2;
+            }
+        }
+    }
+    return arr;
+}
+bubbleSort2([47,45,29,8])
+
