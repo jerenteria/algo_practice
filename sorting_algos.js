@@ -1,6 +1,7 @@
 // What is sorting?
 // Sorting is the rearranging the items in a collection(array) so that the items are in some order
 
+
 function sort(arr) {
     return arr
 }
@@ -17,6 +18,7 @@ function compareByLen(str1, str2) {
 ["Steele", "Colt", "Data Structures", "Algorithms"].sort(compareByLen);
 
 // Bubble sort: a sorting algorithm where the largest values bubble to the top
+// bubble sort is n^2 time complexity
 
 // function swap has an array and 2 indeces that we want to swap
 function swap(arr, idx1, idx2) {
