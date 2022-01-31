@@ -67,3 +67,6 @@ function bubbleSort2(arr) {
 }
 bubbleSort2([47,45,29,8])
 
+/// some review
+
+
