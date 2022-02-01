@@ -67,6 +67,21 @@ function bubbleSort2(arr) {
 }
 bubbleSort2([47,45,29,8])
 
-/// some review
+// selection sort: similar to bubble sort but instead of first placing large values into sorted position it places small 
+// values into sorted position
 
-
+function selectionSort(arr) {
+    for(i = 0; i < arr.length; i++) {
+        min = i;
+        for(j = i + 1; i < arr.length; i++) {
+            if(arr[j] < arr[min]) {
+                min = j;
+            }
+        }
+        temp3 = arr[i];
+        arr[i] = arr[min];
+        arr[min] = temp3;
+    }
+    return arr;
+}
+selectionSort([1,4,6,5,2])
