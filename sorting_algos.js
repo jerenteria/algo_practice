@@ -73,14 +73,21 @@ bubbleSort2([47,45,29,8])
 function selectionSort(arr) {
     for(i = 0; i < arr.length; i++) {
         min = i;
-        for(j = i + 1; i < arr.length; i++) {
+        // loop again but one index in front of i 
+        for(j = i + 1; i < arr.length; j++) {
+            // if arr[j] is less than the current min? if yes that is now the current min
             if(arr[j] < arr[min]) {
                 min = j;
             }
         }
-        temp3 = arr[i];
-        arr[i] = arr[min];
-        arr[min] = temp3;
+        if(i !== min) {
+            // set arr[i] set to var temp3
+            temp3 = arr[i];
+            // swap arr[i] with min
+            arr[i] = arr[min];
+            arr[min] = temp3;
+        }
+
     }
     return arr;
 }
