@@ -92,3 +92,27 @@ function selectionSort(arr) {
     return arr;
 }
 selectionSort([1,4,6,5,2])
+
+// INSERTION SORT: builds up the sort by gradually creating a larger left half which is always sorted
+// START BY PICKING SECOND ELEMENT IN ARRAY
+// COMPARE SECOND ELEMENT WITH ONE BEFORE IT AND SWAP IF NECESSARY
+// CONTINUE TO NEXT ELEMENT AND IF IT IS IN THE INCORRECT ORDER ITERATE THROUGH THE SORTED PORTION TO PLACE ELEMENT IN CORRECT PLACE
+// REPEAT UNTIL ARRAY IS SORTED
+// WORKS GOOD FOR PROGRAMS THAT RUN WITH LIVE DATA
+// SIMILAR TO BUBBLE SORT
+
+function insertionSort(arr) {
+    // loop through array
+    for(var i = 0; i < arr.length; i++) {
+        // store value of i in var currentVal
+        var currentVal = arr[i];
+        // loop through arr j - 1; j is >= 0 and arr[j] > the value stored in currentVal; decrease j by 1 each time
+        for(var j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+            // move the value of j forward one space
+            arr[j+1] = arr[j]
+        }
+        arr[j+1] = currentVal;
+    }
+    return arr;
+}
+insertionSort([2,1,9,76,4])
