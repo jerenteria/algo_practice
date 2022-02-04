@@ -12,10 +12,15 @@ search([1,2,4,5,6,7],3)
 // create a function that accepts a sorted array and value
 // create a left pointer at start of array and right pointer at end of array
 function binarySearch(arr, val) {
+    // starts at index 0
     var start = 0;
+    // starts at end of array
     var end = arr.length - 1;
+    // gets the average of start and end points; ((start + end) / 2)
+    // Math.floor rounds number down to the nearest integer if number is 5.97 Math.floor outputs 5
     var middle = Math.floor((start + end) / 2);
 
+    // while middle value is not equal to value we're looking for
     while(arr[middle] !== val && start <= end) { 
         console.log(start, middle, end)
         // if middle number is less than val shift end
