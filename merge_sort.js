@@ -5,4 +5,19 @@
 // exploits the fact that arrays of 0 or 1 element are always sorted
 // works by decomposing an array into smaller arrays of 0 or 1 elements, then building up a newly sorted array
 
-//
+function merge(arr1, arr2) {
+    newArr = {};
+    let i = 0;
+    let j = 0;
+    while(i < arr1.length && j < arr2.length) {
+        if(arr2[j] > arr1[i]) {
+            results.push(arr1[i]);
+            i++
+        }
+        else {
+            results.push(arr2[j])
+            j++;
+        }
+    }
+    return newArr;
+}
