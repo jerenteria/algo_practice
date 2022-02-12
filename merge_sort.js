@@ -51,6 +51,10 @@ merge([1,10,50], [2,14,99,100])
 // ONCE YOU HAVE SMALLER SORTED ARRAYS MERGE THOSE ARRAYS WITH OTHER SORTED ARRAYS UNTIL YOU ARE BACK AT THE FULL LENGTH OF THE ARRAY
 // ONCE THE ARRAY HAS BEEN MERGED BACK TOGETHER RETURN THE MERGE(AND SORTED) ARRAY
 
-function mergeSort() {
-
+function mergeSort(arr) {
+    if(arr.length <= 1) return arr; // base case
+    let mid = Math.floor(arr.length/2);
+    let left = mergeSort(arr.slice(0, mid));
+    let right = mergeSort(arr.slice(mid));
+    return merge(left, right);
 }
