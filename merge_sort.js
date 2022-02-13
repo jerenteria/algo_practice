@@ -52,7 +52,9 @@ merge([1,10,50], [2,14,99,100])
 // ONCE THE ARRAY HAS BEEN MERGED BACK TOGETHER RETURN THE MERGE(AND SORTED) ARRAY
 
 function mergeSort(arr) {
+    // if arr length <= 1 return arr
     if(arr.length <= 1) return arr; // base case
+    // Math.floor()- returns the largest integer less than or equal to a given number.
     let mid = Math.floor(arr.length/2);
     let left = mergeSort(arr.slice(0, mid));
     let right = mergeSort(arr.slice(mid));
