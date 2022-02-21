@@ -56,7 +56,9 @@ function mergeSort(arr) {
     if(arr.length <= 1) return arr; // base case
     // Math.floor()- returns the largest integer less than or equal to a given number.
     let mid = Math.floor(arr.length/2);
+    // slice the arr from [0] to mid point
     let left = mergeSort(arr.slice(0, mid));
+    // slice from mid to end of arr
     let right = mergeSort(arr.slice(mid));
     return merge(left, right);
 }
