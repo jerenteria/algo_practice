@@ -1,4 +1,5 @@
-// RADIX SORT: doesn't make direct comparisons; works on base 10 numbers; exploits the fact that information about the size of a number 
+// RADIX SORT: BIG 0 TIME COMPLEXITY = O(nk)
+// doesn't make direct comparisons; works on base 10 numbers; exploits the fact that information about the size of a number 
 // is encoded in the number of digits
     // more digits = bigger number(we know that 100 > 1 because 100 has more digits)
 
