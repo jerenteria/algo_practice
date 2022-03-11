@@ -1,9 +1,11 @@
 // FIND DUPLICATES
 var containsDuplicate = function(nums) {
-    var i = 0
-    for(j = 0; j < nums.length; j++) {
-        if(nums[i] == nums[j]) {
+    let map = {}
+    for(i = 0; i < nums.length; i++) {
+        if(nums[i] in map) {
             return true;
+        } else {
+            map[nums[i]] = i;
         }
     }
     return false;
