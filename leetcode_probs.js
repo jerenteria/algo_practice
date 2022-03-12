@@ -36,4 +36,35 @@ var twoSum = function(nums, target) {
         }
     }
 };
-Input: nums = [2,7,11,15], target = 9
+twoSum([2,7,11,15],9)
+
+// Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+// An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+var isAnagram = function(s, t) {
+    if(s.length !== t.length) {
+        return false;
+    }
+    var map = {};
+    for(i = 0; i < s.length; i++) {
+    let letter = s[i];
+        map[letter] ? map[letter] +=1 : map[letter] = 1;
+    }
+    for(i = 0; i < t.length; i++) {
+        let letter = t[i];
+        if(!map[letter]) {
+            return false;
+        } else {
+            map[letter] -= 1;
+        }
+    }
+    return true;
+};
+isAnagram("anagram","nagaram")
+
+// You are given a positive integer num consisting of exactly four digits. Split num into two new integers new1 and new2 by using the digits found in num. 
+// Leading zeros are allowed in new1 and new2, and all the digits found in num must be used.
+// For example, given num = 2932, you have the following digits: two 2's, one 9 and one 3. 
+// Some of the possible pairs [new1, new2] are [22, 93], [23, 92], [223, 9] and [2, 329].
+// Return the minimum possible sum of new1 and new2.
+
