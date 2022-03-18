@@ -68,3 +68,10 @@ isAnagram("anagram","nagaram")
 // Some of the possible pairs [new1, new2] are [22, 93], [23, 92], [223, 9] and [2, 329].
 // Return the minimum possible sum of new1 and new2.
 
+
+
+
+
+// Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. 
+// That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
+// Return the answer in an array.
