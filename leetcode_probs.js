@@ -75,3 +75,40 @@ isAnagram("anagram","nagaram")
 // Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. 
 // That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
 // Return the answer in an array.
+
+var smallerNumbersThanCurrent = function(nums) {
+    // start with empty arr stores how many values are smaller than current value
+    let arr = []
+    // start count at 0
+    let count = 0;
+    // iterate through arr one time with i
+    for(i = 0; i < nums.length; i++) {
+        // iterate again with j
+        for(let j = 0; j < nums.length; j++) {
+            // if nums[i] > nums[j]
+            if(nums[i] > nums[j]) {
+                // increment the count by 1
+                count++;
+            }
+        }
+        // push the amount of numbers smaller than i into array
+        arr.push(count)
+        // reset count back to 0 for next number
+        count = 0;
+    }
+    // return new arr that gives number of smaller values
+    return arr;
+};
+smallerNumbersThanCurrent([8,1,2,2,3])
+
+// 268 Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+var missingNumber = function(nums) {
+    let sum = 0;
+    for(i = 0; i < nums.length; i++) {
+        sum += i;
+        if(nums < nums.length) {
+            sum -= nums[i];
+        }
+    }
+    return sum;
+}
