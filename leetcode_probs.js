@@ -112,3 +112,4 @@ var missingNumber = function(nums) {
     }
     return sum;
 }
+missingNumber([1,2,3,5])
