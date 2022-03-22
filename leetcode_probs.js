@@ -1,4 +1,4 @@
-// FIND DUPLICATES
+// 217 FIND DUPLICATES
 var containsDuplicate = function(nums) {
     let map = {}
     for(i = 0; i < nums.length; i++) {
@@ -72,7 +72,7 @@ isAnagram("anagram","nagaram")
 
 
 
-// Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. 
+// 1365 Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. 
 // That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
 // Return the answer in an array.
 
@@ -101,15 +101,48 @@ var smallerNumbersThanCurrent = function(nums) {
 };
 smallerNumbersThanCurrent([8,1,2,2,3])
 
-// 268 Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+// 268 Missing Number: Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
 var missingNumber = function(nums) {
+    // create sum variable
     let sum = 0;
-    for(i = 0; i < nums.length; i++) {
+    for(i = 0; i <= nums.length; i++) {
+        // add sum to i
         sum += i;
-        if(nums < nums.length) {
+        if(i < nums.length) {
             sum -= nums[i];
         }
     }
     return sum;
 }
-missingNumber([1,2,3,5])
+missingNumber([3,0,1])
+
+// 349. Intersection of Two Arrays: Given two integer arrays nums1 and nums2, return an array of their intersection. 
+// Each element in the result must be unique and you may return the result in any order.
+
+var intersection = function(nums1, nums2) {
+    let map = {} 
+    let result = []
+
+    // make a hashmap of the first array of nums
+    for(let i of nums1) {
+        // if number is not in map
+        if(!map[i]) {
+            // create it and set count to 1
+            map[i] = 1;
+        } else {
+            // if it does exist increment count by 1
+            map[i]++;
+        }
+    }
+
+    for(let i of nums2) {
+        // if map value is greater than 0 
+        if(map[i] > 0) {
+            // push out that value of map
+            result.push(i)
+            // decrease value by 1
+            map[i]--
+        }
+    }
+    return(result)
+};
