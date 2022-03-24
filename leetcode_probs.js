@@ -1,4 +1,4 @@
-// 217 FIND DUPLICATES
+// 217: FIND DUPLICATES
 var containsDuplicate = function(nums) {
     let map = {}
     for(i = 0; i < nums.length; i++) {
@@ -62,17 +62,10 @@ var isAnagram = function(s, t) {
 };
 isAnagram("anagram","nagaram")
 
-// You are given a positive integer num consisting of exactly four digits. Split num into two new integers new1 and new2 by using the digits found in num. 
-// Leading zeros are allowed in new1 and new2, and all the digits found in num must be used.
-// For example, given num = 2932, you have the following digits: two 2's, one 9 and one 3. 
-// Some of the possible pairs [new1, new2] are [22, 93], [23, 92], [223, 9] and [2, 329].
-// Return the minimum possible sum of new1 and new2.
 
 
-
-
-
-// 1365 Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. 
+// 1365:
+// Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. 
 // That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
 // Return the answer in an array.
 
@@ -101,7 +94,8 @@ var smallerNumbersThanCurrent = function(nums) {
 };
 smallerNumbersThanCurrent([8,1,2,2,3])
 
-// 268 Missing Number: Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+// 268 Missing Number:
+// Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
 var missingNumber = function(nums) {
     // create sum variable
     let sum = 0;
@@ -116,7 +110,8 @@ var missingNumber = function(nums) {
 }
 missingNumber([3,0,1])
 
-// 349. Intersection of Two Arrays: Given two integer arrays nums1 and nums2, return an array of their intersection. 
+// 349. 
+// Intersection of Two Arrays: Given two integer arrays nums1 and nums2, return an array of their intersection. 
 // Each element in the result must be unique and you may return the result in any order.
 
 var intersection = function(nums1, nums2) {
@@ -146,3 +141,13 @@ var intersection = function(nums1, nums2) {
     }
     return(result)
 };
+
+// 888. Fair Candy Swap: 
+// Alice and Bob have a different total number of candies. You are given two integer arrays aliceSizes and bobSizes where aliceSizes[i] is 
+// the number of candies of the ith box of candy that Alice has and bobSizes[j] is the number of candies of the jth box of candy that Bob has.
+// Since they are friends, they would like to exchange one candy box each so that after the exchange, they both have the same total amount of candy. 
+// The total amount of candy a person has is the sum of the number of candies in each box they have.
+// Return an integer array answer where answer[0] is the number of candies in the box that Alice must exchange, and answer[1] is the number of candies
+// in the box that Bob must exchange. If there are multiple answers, you may return any one of them. It is guaranteed that at least one answer exists.
+
+// TotalA - A + B - TotalB - B + A
