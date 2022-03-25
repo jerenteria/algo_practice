@@ -150,4 +150,31 @@ var intersection = function(nums1, nums2) {
 // Return an integer array answer where answer[0] is the number of candies in the box that Alice must exchange, and answer[1] is the number of candies
 // in the box that Bob must exchange. If there are multiple answers, you may return any one of them. It is guaranteed that at least one answer exists.
 
-// TotalA - A + B - TotalB - B + A
+// TotalA - A + B = TotalB - B + A
+// 2B + TotalA - A = TotalB + A
+// 2B = TotalB - TotalA + 2A
+// B = (TotalB - TotalA) / 2 + A
+
+var fairCandySwap = function(aliceSizes, bobSizes) {
+    let output = new Array(2);
+    let mapB = {}
+    let TotalA = 0;
+    let TotalB = 0;
+
+    for(i = 0; i < A.length; i++) {
+        TotalA += A[i];
+    }
+    for(i = 0; i < B.length; i++) {
+        TotalB += B[i];
+        mapB[B[i]] = true;
+    }
+    let delta = (TotalB - TotalA) / 2;
+    for(i = 0; i < A.length; i++) {
+        if(mapB[a[i] + delta]) {
+            output[0] = A[i];
+            output[1] = A[i] + delta
+            return output;
+        }
+    }
+};
+
