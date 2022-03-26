@@ -176,5 +176,5 @@ var fairCandySwap = function(aliceSizes, bobSizes) {
             return output;
         }
     }
-};
+}
 
