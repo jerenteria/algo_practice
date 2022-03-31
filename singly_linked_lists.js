@@ -4,7 +4,7 @@
 
 
 
-    
+
 // This function should accept a value
 // Create a new node using the value passed to the function 
 // If there is no head property on the list, se the head and tail to be the newly created node
@@ -32,12 +32,15 @@ class SinglyLinkedList {
         if(!this.head) {
             // make head = new node
             this.head = newNode;
-            // head and tail are the same
+            // head and tail are the same; equal to each other
             this.tail = this.head;
         } else {
+            // take current tail; take next property and set it to be new node 
             this.tail.next = newNode;
+            // new node becomes new tail
             this.tail = newNode;
         }
+        // increment length by one
         this.length++;
         return this;
     }
@@ -52,4 +55,3 @@ class SinglyLinkedList {
 var list = new SinglyLinkedList()
 list.push("Hello")
 list.push("GOODBYE")
-list.push(80)
