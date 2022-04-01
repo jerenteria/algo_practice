@@ -44,14 +44,77 @@ class SinglyLinkedList {
         this.length++;
         return this;
     }
+    // pops last node
+    pop() {
+        // if there is no head value return undefined
+        if(!this.head) return undefined;
+        // make current value the new head
+        var current = this.head;
+        // makes current value new tail
+        var newTail = current;
+        while(current.next) {
+            // current becomes new tail
+            newTail = current;
+            // keep moving current forward one
+            current = current.next;
+        }
+        console.log(current.val)
+        console.log(newTail.val)
+        // move the tail; this.tail becomes new tail
+        // ex: HELLO --> GOODBYE --> !
+        //                  nt       c
+        this.tail = newTail;
+        // makes "GOODBYE" new tail and sets next value to null; blocks connection to value "!"
+        this.tail.next = null;
+        this.length--;
+        // if length = 0
+        if(this.length === 0) {
+            // null becomes null
+            this.head = null;
+            // tail becomes null
+            this.tail = null;
+        }
+        return current;
+    }
+    // removes head of linked list
+    shift() {
+        // if there is no head return undefined
+        if(!this.head) return undefined;
+        // store currnet head which in this case is "HELLO" in variable
+        var currentHead = this.head;
+        // move current head over one and make it the new head
+        // goes from "HELLO" being new head to "GOODBYE" being new head
+        this.head = currentHead.next;
+        // decrease length by 1
+        this.length--;
+        if(this.length === 0) {
+            // tail becomes null
+            this.tail = null;
+        }
+        return currentHead;
+    }
+    unShift(newNode) {
+        var newNode = new Node;
+        if(!this.head) {
+            this.head = newNode;
+            this.tail = this.head
+        } else {
+        // makes the connection between the newly added node and the current head, but "HELLO" is still currently the HEAD node
+        //          HEAD
+        // "*" --> "HELLO" --> "GOODBYE"
+        newNode.next = this.head;
+        // makes the newNode the new head; "*" which is the new node becomes the new head node
+        // HEAD
+        // "*" --> "HELLO" --> "GOODBYE"
+        this.head = newNode;
+        }
+        this.length++;
+        // return the entire list
+        return this;
+    }
 }
-
-// var first = new Node("Hi")
-// first.next = new Node("there")
-// first.next.next = new Node("how")
-// first.next.next.next = new Node("are")
-// first.next.next.next.next = new Node("you")
 
 var list = new SinglyLinkedList()
 list.push("Hello")
 list.push("GOODBYE")
+list.push("!")
