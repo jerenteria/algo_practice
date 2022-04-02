@@ -1,6 +1,9 @@
 // SINGLY LINKED LISTS: A linked list is a data stucture; stores data; no indeces; contains head, tail, and length property
     // consists of nodes, each node has a value and a pointer to another node or null
     // each node is only connected in one direction to next node
+    // better alternative to arrays when inserting/deleting at beginning are frequently required
+    // Arrays contain index while Linked Lists do not; linked lists are nodes connected to one another with reference/pointer; no index or position; cant access things
+    //easily using an index
 
 
 
@@ -112,6 +115,7 @@ class SinglyLinkedList {
         // return the entire list
         return this;
     }
+    // searches for certain node; time complexity O(N) 
     get(index) {
         // || means or
         if(index < 0 || index >= this.length) return null;
@@ -139,6 +143,7 @@ class SinglyLinkedList {
        }
        return false;
     }
+    // inserts new nodes; time complexity = constant O(1)
     insert(index, value) {
         // if its invalid return false;
         if(index < 0 || index > this.length) return false;
@@ -147,7 +152,7 @@ class SinglyLinkedList {
         // if index is 0 call unshift() push to beggining
         if(index === 0) return !!this.unShift(val);
 
-        
+
         var newNode = new Node(val);
         // calls the get() function to get index and - 1 to go back one space
         var prev = this.get(index - 1);
@@ -159,7 +164,50 @@ class SinglyLinkedList {
         newNode.next = temp;
         this.length++;
         return true;
-       
+    }
+    // removes node at certain index; time complexity can either be O(1) or O(N); depending where are you removing
+    remove(index) {
+        if(index < 0 || index > length) return undefined;
+        if(index === this.length - 1) return this.pop();
+        if(index === 0) this.shift();
+        // retrieve the value one before the one we want to remove
+        var previousNode = this.get(index -1);
+        // store the node next to the current node you are at(previous node) 
+        var removed = previousNode.next;
+        // links the node previous to node being removed and node that comes after node being removed
+        // while removing the node being removed
+        previousNode.next = removed.next;
+        this.length--;
+        return removed;
+    }
+    reverse() {
+        // var node starts at head
+        var node = this.head;
+        // head now becomes the tail
+        this.head = this.tail;
+        this.tail = node;
+        var next;
+        var prev = null;
+        for(var i = 0; i < this.length; i++) {
+            next = node.next;
+            // node.next becomes previous which is now null
+            // ex: 100 --> 201 --> 250 --> 350 --> 999 -->
+            // now becomes 100 --> null
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+        return this;
+    }
+
+    print() {
+        var arr = [];
+        var current = this.head
+        while(current) {
+            arr.push(current.val)
+            current = current.next
+        }
+        console.log(arr);
     }
 }
 
@@ -170,7 +218,8 @@ var list = new SinglyLinkedList()
 // list.push("<3")
 // list.push(":)")
 
-list.push(100)
-list.push(201)
-list.push(250)
-list.push(350)
+    list.push(100)
+    list.push(201)
+    list.push(250)
+    list.push(350)
+    list.push(999)
