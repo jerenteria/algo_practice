@@ -112,9 +112,65 @@ class SinglyLinkedList {
         // return the entire list
         return this;
     }
+    get(index) {
+        // || means or
+        if(index < 0 || index >= this.length) return null;
+        // to keep track how many times you have moved up
+        var counter = 0;
+        // current keeps track of where you are at; starts at head node
+        var current = this.head;
+        // while counter is not equal to index
+        while(counter !== index) {
+            // move on to next node
+            current = current.next;
+            // increment counter by one because you are moving up one spot
+            counter++;
+        }
+    }
+    // switches node value to whatever user inputs
+    set(index, val) {
+        // call get() function and store it in var foundNode
+       var foundNode = this.get(index);
+       // check if value is found
+       if(foundNode) {
+           // update the found node value with the value that was passed in
+           foundNode.val = val;
+           return true;
+       }
+       return false;
+    }
+    insert(index, value) {
+        // if its invalid return false;
+        if(index < 0 || index > this.length) return false;
+        // index is = to length push it to the end; !! converts argument to boolean
+        if(index === this.length) return !!this.push(val);
+        // if index is 0 call unshift() push to beggining
+        if(index === 0) return !!this.unShift(val);
+
+        
+        var newNode = new Node(val);
+        // calls the get() function to get index and - 1 to go back one space
+        var prev = this.get(index - 1);
+        // stores prev.next in var temp to keep connection from new node to node before it 
+        var temp = prev.next;
+        // place the new node after the previous node 
+        prev.next = newNode;
+        // stores newNode.next variable in var temp to keep connection from new node to node after it 
+        newNode.next = temp;
+        this.length++;
+        return true;
+       
+    }
 }
 
 var list = new SinglyLinkedList()
-list.push("Hello")
-list.push("GOODBYE")
-list.push("!")
+// list.push("Hello")
+// list.push("GOODBYE")
+// list.push("!")
+// list.push("<3")
+// list.push(":)")
+
+list.push(100)
+list.push(201)
+list.push(250)
+list.push(350)
