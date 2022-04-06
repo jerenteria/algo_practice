@@ -212,14 +212,20 @@ mergeTwoLists([1,2,4],[1,3,4])
 
 // Given the head of a singly linked list, reverse the list, and return the reversed list.
 var reverseList = function(head) {
+    // curent starts at head
     let current = head;
+    // set previous to null so when the first node becomes previous it points to null
     let prev = null;
     let next;
 
     while(current !== null) {
+        // next node is the node next to current node
         next = current.next;
+        // current.next breaks the pointer going to next node; then you switch previous to be the current node
         current.next = prev;
+        // current is now previous because current and next node has already switched over
         prev = current;
+        // current becomes next
         current = next
     }
     return prev;
