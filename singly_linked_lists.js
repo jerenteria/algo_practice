@@ -223,3 +223,19 @@ var list = new SinglyLinkedList()
     list.push(250)
     list.push(350)
     list.push(999)
+
+var middleNode = function(head) {
+    // start fast and slow at head node
+    let fast = head;
+    let slow = head;
+    // while fast is true and fast.next is true
+    while(fast && fast.next) {
+        // move fast pointer up 2 nodes
+        fast = fast.next.next;
+        // move slow pointer up 1 node
+        slow = slow.next;
+    }
+    // return slow because no matter what slow will be at the middle node
+    return slow;
+}
+middleNode([1,2,3,4,5])

@@ -230,3 +230,27 @@ var reverseList = function(head) {
     }
     return prev;
 };
+
+// 876. Middle of the Linked List
+// Given the head of a singly linked list, return the middle node of the linked list.
+// If there are two middle nodes, return the second middle node.
+
+var middleNode = function(head) {
+    // start fast and slow at head node
+    let fast = head;
+    let slow = head;
+    // while fast is true and fast.next is true
+    while(fast && fast.next) {
+        // move fast pointer up 2 nodes
+        fast = fast.next.next;
+        // move slow pointer up 1 node
+        slow = slow.next;
+    }
+    // return slow because no matter what slow will be at the middle node
+    return slow;
+}
+middleNode([1,2,3,4,5])
+
+// 83. Remove Duplicates from Sorted List
+// Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
+
