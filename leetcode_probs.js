@@ -254,3 +254,13 @@ middleNode([1,2,3,4,5])
 // 83. Remove Duplicates from Sorted List
 // Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
 
+var deleteDuplicates = function(head) {
+    var counter = 0;
+    let pointer = head;
+    
+  while(pointer <= this.length) {
+      pointer = pointer.next;
+      counter++;
+  }
+    return counter;
+};
