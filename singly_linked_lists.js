@@ -224,6 +224,11 @@ var list = new SinglyLinkedList()
     list.push(350)
     list.push(999)
 
+
+// 876. Middle of the Linked List
+// Given the head of a singly linked list, return the middle node of the linked list.
+// If there are two middle nodes, return the second middle node.
+
 var middleNode = function(head) {
     // start fast and slow at head node
     let fast = head;
@@ -239,3 +244,26 @@ var middleNode = function(head) {
     return slow;
 }
 middleNode([1,2,3,4,5])
+
+
+// 83. Remove Duplicates from Sorted List
+// Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
+
+var deleteDuplicates = function(head) {
+    let dummy = new ListNode(-Infinity, head);
+    let current = head;
+    let prev = dummy;
+
+    while(current) {
+        if(current.val === prev.val) {
+            while(current && current.val === prev.val) {
+                current = current.next;
+            }
+            prev.next = current;
+        } else {
+            prev = current;
+            current = current.next;
+        }
+    }
+    return dummy.next; 
+};

@@ -255,12 +255,22 @@ middleNode([1,2,3,4,5])
 // Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
 
 var deleteDuplicates = function(head) {
-    var counter = 0;
-    let pointer = head;
-    
-  while(pointer <= this.length) {
-      pointer = pointer.next;
-      counter++;
-  }
-    return counter;
+    let dummy = new ListNode(-Infinity, head);
+    let current = head;
+    let prev = dummy;
+
+    // while current is true    
+    while(current) {
+        // if current.val is same as prev.val
+        if(current.val === prev.val) {
+            while(current && current.val === prev.val) {
+                current = current.next;
+            }
+            prev.next = current;
+        } else {
+            prev = current;
+            current = current.next;
+        }
+    }
+    return dummy.next; 
 };
