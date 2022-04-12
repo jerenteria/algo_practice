@@ -275,4 +275,20 @@ var deleteDuplicates = function(head) {
     return dummy.next; 
 };
 
+// Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+// You must implement a solution with a linear runtime complexity and use only constant extra space.
 
+var singleNumber = function(nums) {
+    let hash = 0;
+    let i = 0;
+    let j = 1;
+    
+   while(i < nums.length && j < nums.length) {
+       if([i] !== [j]) {
+           hash.push(nums[i]);
+           console.log(hash);
+       }
+       return hash;
+       
+   }
+};
