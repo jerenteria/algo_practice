@@ -279,16 +279,6 @@ var deleteDuplicates = function(head) {
 // You must implement a solution with a linear runtime complexity and use only constant extra space.
 
 var singleNumber = function(nums) {
-    let hash = 0;
-    let i = 0;
-    let j = 1;
-    
-   while(i < nums.length && j < nums.length) {
-       if([i] !== [j]) {
-           hash.push(nums[i]);
-           console.log(hash);
-       }
-       return hash;
-       
-   }
+    let hash = {};
+    hash[num] = hash[num] + 1 || 1;
 };
