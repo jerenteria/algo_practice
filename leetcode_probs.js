@@ -280,5 +280,11 @@ var deleteDuplicates = function(head) {
 
 var singleNumber = function(nums) {
     let hash = {};
-    hash[num] = hash[num] + 1 || 1;
+    for(i = 0; i < nums.length; i++) {
+        let end = nums.length - 1;
+        if(!hash[i]) {
+            nums.slice(end)
+        }
+    return end;
+    }
 };
