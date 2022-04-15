@@ -280,11 +280,43 @@ var deleteDuplicates = function(head) {
 
 var singleNumber = function(nums) {
     let hash = {};
-    for(i = 0; i < nums.length; i++) {
-        let end = nums.length - 1;
-        if(!hash[i]) {
-            nums.slice(end)
+    for(item of nums) {
+        // if item is not in hash add it
+        if(!hash[item]) {
+            // set value to 1
+            hash[item] = 1;
+            // if its already there increment by 1
+        } else {
+            hash[item]++;
         }
-    return end;
+        console.log(hash)
     }
+    // iterates through hash and finds the value that only appears once and returns it
+    // return the key/item of the value that equals one
+    return Object.keys(hash).find(key => hash[key] === 1);
+};
+
+// 237. Delete Node in a Linked List
+// Write a function to delete a node in a singly-linked list. You will not be given access to the head of the list, instead you will be given access to the node to be deleted directly.
+// It is guaranteed that the node to be deleted is not a tail node in the list.
+
+var deleteNode = function(node) {
+    // takes the node value and points to nodes after
+        // 4 -> 5 -> 1 -> 9
+        // starts at 5 and instead of 5 pointing to 1 it points to 9
+    let next = node.next.next;
+    // then you use node.val and change the value of 5 by setting it equal to the value of node to it which is one
+    // 4 -> 1 -> 1 -> 9
+    node.val = node.next.val;
+    // then you just point to the next node after one which is 9 and remove the 5 from the linked list
+    // 4 -> 5 -> 9
+    node.next = next;
+};
+deleteNode([4,5,1,9], 5)
+
+// 203. Remove Linked List Elements
+// Given the head of a linked list and an integer val, remove all the nodes of the linked list that has Node.val == val, and return the new head
+
+var removeElements = function(head, val) {
+    
 };
