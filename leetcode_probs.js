@@ -320,3 +320,4 @@ deleteNode([4,5,1,9], 5)
 var removeElements = function(head, val) {
     hash = {};
 };
+
