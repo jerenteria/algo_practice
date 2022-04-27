@@ -318,7 +318,13 @@ deleteNode([4,5,1,9], 5)
 // Given the head of a linked list and an integer val, remove all the nodes of the linked list that has Node.val == val, and return the new head
 
 var removeElements = function(head, val) {
-    hash = {};
+    current = this.head;
+    while(current.next) {
+        if(current === this.val) {
+            current = this.next.next;
+            console.log(current);
+        }
+    }
 };
 
 
