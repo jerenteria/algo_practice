@@ -318,49 +318,31 @@ deleteNode([4,5,1,9], 5)
 // Given the head of a linked list and an integer val, remove all the nodes of the linked list that has Node.val == val, and return the new head
 
 var removeElements = function(head, val) {
-    current = this.head;
-    next = current.next;
-    while(current) {
-        if(current === this.val) {
-            current = this.next.next;
-            console.log(current);
-        }
-    }
+    let dummy = new ListNode(-1);
+    dummy.next = head;
+    // make prev node the dummy node of -1 in case we have to get rid of first node in list
+    let prev = dummy;
+    let current = head;
+    // while current is true
+   while(current) {
+        // if the value of current node is the same as the input value
+       if(current.val === val) {
+           // get rid of that node because that is the node we want to get rid of by pointing the previous node to the node after the target node
+           prev.next = current.next;
+           // after removing the node, then iterate up the list by 1
+           current = current.next;
+       } else {
+           // incremenet prev by one; current becomes previous
+           prev = current;
+           // current also moves up by one
+           current = current.next;
+       }
+   }
+   return dummy.next;
 };
 
 
-var removeElements = function(head, val) {
-    current = this.head;
-    next = current.next;
-    while(current) {
-        if(current === this.val) {
-            current = this.next.next;
-            console.log(current);
-        }
-    }
-};
 
-var removeElements = function(head, val) {
-    current = this.head;
-    next = current.next;
-    while(current) {
-        if(current === this.val) {
-            current = this.next.next;
-            console.log(current);
-        }
-    }
-};
-
-var removeElements = function(head, val) {
-    current = this.head;
-    next = current.next;
-    while(current) {
-        if(current === this.val) {
-            current = this.next.next;
-            console.log(current);
-        }
-    }
-};
 
 
 
