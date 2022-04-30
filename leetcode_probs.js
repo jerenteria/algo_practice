@@ -329,6 +329,38 @@ var removeElements = function(head, val) {
 };
 
 
+var removeElements = function(head, val) {
+    current = this.head;
+    next = current.next;
+    while(current) {
+        if(current === this.val) {
+            current = this.next.next;
+            console.log(current);
+        }
+    }
+};
+
+var removeElements = function(head, val) {
+    current = this.head;
+    next = current.next;
+    while(current) {
+        if(current === this.val) {
+            current = this.next.next;
+            console.log(current);
+        }
+    }
+};
+
+var removeElements = function(head, val) {
+    current = this.head;
+    next = current.next;
+    while(current) {
+        if(current === this.val) {
+            current = this.next.next;
+            console.log(current);
+        }
+    }
+};
 
 
 
