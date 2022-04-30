@@ -319,7 +319,8 @@ deleteNode([4,5,1,9], 5)
 
 var removeElements = function(head, val) {
     current = this.head;
-    while(current.next) {
+    next = current.next;
+    while(current) {
         if(current === this.val) {
             current = this.next.next;
             console.log(current);
