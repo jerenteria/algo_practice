@@ -349,6 +349,20 @@ console.log(removeElements([1,2,6,3,4,5,6], 6))
 // Return a list of the target indices of nums after sorting nums in non-decreasing order. If there are no target indices, return an empty list.
 // The returned list must be sorted in increasing order.
 
+var targetIndices = function(nums, target) {
+    // this line bascially is just telling the .sort() function to sort the numbers in ascending order
+    nums.sort((a,b) => (a-b));
+    let map = [];
+    for(i = 0; i < nums.length; i++) {
+        if(nums[i] == target) {
+            map.push(i);
+            console.log(map);
+            }
+        }
+    return map;
+};
+
+
 
 
 
