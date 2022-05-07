@@ -362,6 +362,24 @@ var targetIndices = function(nums, target) {
     return map;
 };
 
+// 1351. Count Negative Numbers in a Sorted Matrix
+// Given a m x n matrix grid which is sorted in non-increasing order both row-wise and column-wise, return the number of negative numbers in grid.
+
+var countNegatives = function(grid) {
+    let map = [];
+    let val = grid(i);
+    let j = 0;
+
+    for(i = 0; i < grid.length; i++) {
+        if(j.val < 0) {
+            map.push(i)
+            console.log(map);
+        }
+        return map;
+    }
+    return false;
+};
+console.log(countNegatives([[4,3,2,-1],[3,2,1,-1],[1,1,-1,-2],[-1,-1,-2,-3]]));
 
 
 
