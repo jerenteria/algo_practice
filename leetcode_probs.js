@@ -382,3 +382,16 @@ console.log(countNegatives([[4,3,2,-1],[3,2,1,-1],[1,1,-1,-2],[-1,-1,-2,-3]]));
 
 
 
+var sortArrayByParity = function(nums) {
+    let even = [];
+    let odd = [];
+    for(i = 0; i < nums.length; i++) {
+        if(nums[i] % 2 == 0) {
+            even.push(nums[i])
+            console.log(even)
+        }        
+        odd.push(nums[i])
+    }
+    return even.concat(odd);
+};
+sortArrayByParity([3,1,2,4]);
