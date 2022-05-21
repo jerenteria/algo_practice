@@ -367,17 +367,15 @@ var targetIndices = function(nums, target) {
 
 var countNegatives = function(grid) {
     let map = [];
-    let val = grid(i);
-    let j = 0;
 
     for(i = 0; i < grid.length; i++) {
-        if(j.val < 0) {
-            map.push(i)
-            console.log(map);
+        for(let j = grid[i].length - 1; j >= 0; j--) {
+            if(grid[i][j] <  0) {
+                map++;
+            }
+            break;
         }
-        return map;
     }
-    return false;
 };
 console.log(countNegatives([[4,3,2,-1],[3,2,1,-1],[1,1,-1,-2],[-1,-1,-2,-3]]));
 
