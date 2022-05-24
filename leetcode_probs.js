@@ -396,3 +396,14 @@ var sortArrayByParity = function(nums) {
     }
     return even.concat(odd);
 };
+
+
+
+var findFinalValue = function(nums, original) {
+    for(i = 0; i < nums.length; i++) {
+        if(nums[i] === original) {
+            (nums[i] * 2) = original;
+        }
+    }
+    return original;
+}; 
