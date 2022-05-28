@@ -416,10 +416,15 @@ var findFinalValue = function(nums, original) {
     return target;
 };
 
-// 1464. 1464. Maximum Product of Two Elements in an Array.
+// 1464. Maximum Product of Two Elements in an Array.
 // Given the array of integers nums, you will choose two different indices i and j of that array. Return the maximum value of (nums[i]-1)*(nums[j]-1).
 var maxProduct = function(nums) {
+    maxProduct = {}
+    let j = 1;
     for(i = 0; i < nums.length; i++) {
-        if(i)
+        for(j = i +1; j < nums.length; i ++) {
+            if(nums[i] * nums[j] == )
+        }
     }
+    return nums;
 };
