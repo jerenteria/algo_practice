@@ -432,3 +432,5 @@ var maxProduct = function(nums) {
     return (max - 1) * (max2 - 1);
 };
 console.log(maxProduct());
+
+// 1346. Check If N and Its Double Exist
