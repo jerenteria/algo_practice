@@ -435,10 +435,11 @@ console.log(maxProduct());
 
 // 1346. Check If N and Its Double Exist
 var checkIfExist = function(arr) {
-    for(i = 0; i < arr.length; i++) {
-        let target = 2 * arr[i]; 
-        if(arr.includes(target)) {
-            return true;
-        }
+    for (let i = 0; i < arr.length; i++) {
+        // if number in array ==== 0 skip and move up one
+        if (arr[i] === 0) i++;
+        // if number * 2 is in array return true
+            if (arr.includes(arr[i] * 2)) return true;
     }
-};
+    return false;
+  };
