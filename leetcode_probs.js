@@ -434,6 +434,12 @@ var maxProduct = function(nums) {
 console.log(maxProduct());
 
 // 1346. Check If N and Its Double Exist
+// Given an array arr of integers, check if there exists two integers N and M such that N is the double of M ( i.e. N = 2 * M).
+// More formally check if there exists two indices i and j such that :
+// i != j
+// 0 <= i, j < arr.length
+// arr[i] == 2 * arr[j]
+
 var checkIfExist = function(arr) {
     for (let i = 0; i < arr.length; i++) {
         // if number in array ==== 0 skip and move up one
@@ -443,3 +449,43 @@ var checkIfExist = function(arr) {
     }
     return false;
   };
+
+// 1480. Running Sum of 1d Array
+// Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
+// Return the running sum of nums.
+
+
+var runningSum = function(nums) {
+    for(i = 1; i < nums.length; i++) {
+        nums[i] += nums[i - 1];
+    }
+    return nums;
+};
+
+// 1290. Convert Binary Number in a Linked List to Integer
+// Given head which is a reference node to a singly-linked list. The value of each node in the linked list is either 0 or 1. 
+// The linked list holds the binary representation of a number.
+// Return the decimal value of the number in the linked list.
+
+// input:  1 -> 0 -> 1
+// output: 5
+// explanation: (101) in base 2 = (5) in base 10
+
+// each number has a place 
+// 1            0           1
+// 4s place     2s place    1s place
+// 2^2          2^1         2^0
+
+
+var getDecimalValue = function(head) {
+    let currentNode = head;
+    let total = 0;
+
+    while(currentNode) {
+        // youre multipling each time by the power of 2 each time and add the val of te current node
+        total = total * 2 + currentNode.val;
+        // move on to the next node
+        currentNode = currentNode.next;
+    }
+    return total;
+};
