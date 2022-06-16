@@ -497,14 +497,21 @@ var getDecimalValue = function(head) {
 // Return any answer array that satisfies this condition.
 
 var sortArrayByParityII = function(nums) {
-    let map = [];
-    const second = (nums[i] % 2 != 0)
-    for(i = 0; i < nums.length / 2; i++) {
-        if(nums[i] % 2 == 0) {
-            map.push(nums[i]);
-            map.push(nums[second]);
+    let evens = [];
+    let odds = [];
+    let solutions = [];
+    for (let i=0; i<nums.length; i++) {
+        if (nums[i] % 2 === 0) {
+            evens.push(nums[i]);
+        } else {
+            odds.push(nums[i]);
         }
-
     }
-    return map;
+    
+    for (let j=0; j < (odds.length+evens.length)/2; j++) {
+        solutions.push(evens[j]);
+        solutions.push(odds[j]);
+    }
+    
+    return solutions
 };
