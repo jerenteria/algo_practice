@@ -524,6 +524,8 @@ var sortArrayByParityII = function(nums) {
 
 var truncateSentence = function(s, k) {
     for(i = 0; i < s.length; i++) {
-        
+        if(s[i] != k.length) {
+            return -1;
+        }
     }
 };
