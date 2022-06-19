@@ -522,10 +522,3 @@ var sortArrayByParityII = function(nums) {
 // You are given a sentence s​​​​​​ and an integer k​​​​​​. You want to truncate s​​​​​​ such that it contains only the first k​​​​​​ words. Return s​​​​​​ after truncating it.
 
 
-var truncateSentence = function(s, k) {
-    for(i = 0; i < s.length; i++) {
-        if(s[i] != k.length) {
-            return -1;
-        }
-    }
-};
