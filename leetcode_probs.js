@@ -516,11 +516,54 @@ var sortArrayByParityII = function(nums) {
     return solutions
 };
 
-// A sentence is a list of words that are separated by a single space with no leading or trailing spaces.
-// Each of the words consists of only uppercase and lowercase English letters (no punctuation).
-// For example, "Hello World", "HELLO", and "hello world hello world" are all sentences.
-// You are given a sentence s​​​​​​ and an integer k​​​​​​. You want to truncate s​​​​​​ such that it contains only the first k​​​​​​ words. Return s​​​​​​ after truncating it.
+// You are given a string array words and a string s, where words[i] and s comprise only of lowercase English letters.
+// Return the number of strings in words that are a prefix of s.
+// A prefix of a string is a substring that occurs at the beginning of the string.
+// A substring is a contiguous sequence of characters within a string.
 
-var truncateSentence = function(s, k) {
+// EXAMPLE: 
+// Input: words = ["a","b","c","ab","bc","abc"], s = "abc"
+// Output: 3
+// Explanation:
+// The strings in words which are a prefix of s = "abc" are:
+// "a", "ab", and "abc".
+// Thus the number of strings in words which are a prefix of s is 3.
 
+var countPrefixes = function (words, s) {
+    let count = 0;
+  
+    for (let i = 0; i < words.length; i++) {
+      if (s.startsWith(words[i])) {
+        count++;
+      }
+    }
+  
+    return count;
 };
+
+
+// Leetcode 599. Suppose Andy and Doris want to choose a restaurant for dinner, and they both have a list of favorite restaurants represented by 
+// strings. You need to help them find out their common interest with the least list index sum. 
+// If there is a choice tie between answers, output all of them with no order requirement. 
+// You could assume there always exists an answer.
+
+// Input: list1 = ["Shogun","Tapioca Express","Burger King","KFC"], list2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
+// Output: ["Shogun"]
+// Explanation: The only restaurant they both like is "Shogun".
+
+var findRestaurant = function(list1, list2) {
+    const map = {}
+    for(let i=0;i<list1.length;i++) {
+        const e = list1[i]
+        const index = list2.indexOf(e)
+        if(index>-1) {
+            if (map[index+i]) {
+                map[index+i].push(e)
+            }else{
+                map[index+i] = [e]
+            }
+        }
+    }
+    return Object.values(map)[0]
+};
+
