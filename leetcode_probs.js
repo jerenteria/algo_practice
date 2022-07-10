@@ -567,3 +567,32 @@ var findRestaurant = function(list1, list2) {
     return Object.values(map)[0]
 };
 
+// You are given an array items, where each items[i] = [typei, colori, namei] describes the type, color, 
+// and name of the ith item. You are also given a rule represented by two strings, ruleKey and ruleValue.
+
+// ruleKey == "type" and ruleValue == typei.
+// ruleKey == "color" and ruleValue == colori.
+// ruleKey == "name" and ruleValue == namei.
+
+// Input: items = [["phone","blue","pixel"],["computer","silver","lenovo"],["phone","gold","iphone"]], ruleKey = "color", ruleValue = "silver"
+// Output: 1
+// Explanation: There is only one item matching the given rule, which is ["computer","silver","lenovo"].
+
+var countMatches = function(items, ruleKey, ruleValue) {
+    let count = 0;
+    for(let i = 0; i < items.length; ++i) {
+        // set rulekey equal to type
+        if(ruleKey === 'type') {
+            // type is set to index 0 in items            
+            if(ruleValue === items[i][0]) count++;
+        }
+        else if(ruleKey === 'color') {
+            if(ruleValue === items[i][1]) count++;
+        }
+        else {
+            if(ruleValue === items[i][2]) count++;
+        }
+    }
+    return count;
+};
+
