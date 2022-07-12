@@ -547,8 +547,8 @@ var countPrefixes = function (words, s) {
 // If there is a choice tie between answers, output all of them with no order requirement. 
 // You could assume there always exists an answer.
 
-// Input: list1 = ["Shogun","Tapioca Express","Burger King","KFC"], list2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
-// Output: ["Shogun"]
+    Input: list1 = ["Shogun","Tapioca Express","Burger King","KFC"], list2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
+    Output: ["Shogun"]
 // Explanation: The only restaurant they both like is "Shogun".
 
 var findRestaurant = function(list1, list2) {
@@ -574,8 +574,8 @@ var findRestaurant = function(list1, list2) {
 // ruleKey == "color" and ruleValue == colori.
 // ruleKey == "name" and ruleValue == namei.
 
-// Input: items = [["phone","blue","pixel"],["computer","silver","lenovo"],["phone","gold","iphone"]], ruleKey = "color", ruleValue = "silver"
-// Output: 1
+    Input: items = [["phone","blue","pixel"],["computer","silver","lenovo"],["phone","gold","iphone"]], ruleKey = "color", ruleValue = "silver"
+    Output: 1
 // Explanation: There is only one item matching the given rule, which is ["computer","silver","lenovo"].
 
 var countMatches = function(items, ruleKey, ruleValue) {
@@ -596,3 +596,20 @@ var countMatches = function(items, ruleKey, ruleValue) {
     return count;
 };
 
+// Given two string arrays word1 and word2, return true if the two arrays represent the same string, 
+// and false otherwise.
+// A string is represented by an array if the array elements concatenated in order forms the string.
+
+Input: word1 = ["ab", "c"], word2 = ["a", "bc"]
+Output: true
+Explanation:
+// word1 represents string "ab" + "c" -> "abc"
+// word2 represents string "a" + "bc" -> "abc"
+// The strings are the same, so return true.
+
+var arrayStringsAreEqual = function(word1, word2) {
+    for(i = 0; i < word1.length; i++) {
+        if(word)
+        return false;
+    }
+};
