@@ -641,3 +641,50 @@ var moveZeroes = function(nums) {
 // For each 0 <= i < nums1.length, find the index j such that nums1[i] == nums2[j] and determine the next greater element of nums2[j]
 //  in nums2. If there is no next greater element, then the answer for this query is -1.
 // Return an array ans of length nums1.length such that ans[i] is the next greater element as described above.
+var nextGreaterElement = function(nums1, nums2) {
+    /*
+    [4,1,2] - nums1 
+    [1,3,4,2] - nums2
+    //iterare over nums2 (as it has all the values)
+    //put the first item in the stack
+    //when putting next item in stack compare with last item in stack - ex 3>1 = yes then pop 1 and map it to 3  and keep going
+    map 
+    {'1':3,
+    '3':4}
+    stack - remaining items 
+    [4, 2]
+    //map the remining items to -1 
+    final map
+   { '1': 3, '2': -1, '3': 4, '4': -1 }
+    //now iterate through nums1 and get the mapping for each element
+    //push into res arr  
+   [-1,3,-1]
+    */ 
+    
+    
+    var stack = [];
+    var map = {};
+    var res = [];
+    
+    for (var i = 0; i < nums2.length; i++) {
+        while(stack.length > 0 && nums2[i] > stack[stack.length -1]){          
+            var lastEl = stack.pop();
+            map[lastEl] = nums2[i];
+            
+        }
+        //first element and elements that are < stack elements 
+        stack.push(nums2[i]);
+    }
+    
+    while(stack.length > 0){  
+        var remaining = stack.pop();
+        map[remaining] = -1;
+    }
+    
+    for(var i=0; i<nums1.length; i++){
+        var nums = map[nums1[i]];
+        res.push(nums)
+    }
+    
+    return res;
+};
