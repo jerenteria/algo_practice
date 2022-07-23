@@ -688,3 +688,26 @@ var nextGreaterElement = function(nums1, nums2) {
     
     return res;
 };
+
+
+// 1089. Duplicate Zeros
+// Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the remaining elements to the right.
+// Note that elements beyond the length of the original array are not written. Do the above modifications to the input array 
+// in place and do not return anything.
+
+var duplicateZeros = function(arr) {
+    // loop through arr
+    for(i = 0; i < arr.length; i++) {
+        // if arr[i] = 0
+        if(arr[i] === 0) {
+            // splice the array at index i and add a 0
+            // arr.splice(index, 0, item); will insert item into arr at the specified index 
+            // (deleting 0 items first, that is, it's just an insert).
+            arr.splice(i, 0, 0);
+            // increase i by one to skip the 0 you just added or else the process will just repeat itself and keep adding 0
+            i++;
+            // pop the end of the array to keep the array the same length
+            arr.pop();
+        }
+    }
+};
