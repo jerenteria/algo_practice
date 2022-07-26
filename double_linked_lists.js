@@ -55,12 +55,70 @@ class DoublyLinkedLists {
                 // if we pop 7 
                 // make 3 the new tail
             this.tail = poppedNode.prev;
-            // the new tail is now pointing at null to remove linkage to old node
+            // the new tail is now pointing at null to remove linkage to old node(its good to do this to prevent access to old nodes)
             this.tail.next = null;
             // make the old connection from poppedNode to previous and make it null
             poppedNode.prev = null;
         }
         this.length--;
         return poppedNode;
+    }
+    // removes the head node
+    shift(val) {
+        // if the list is empty (no head node)
+        if(!this.head) {
+            // return undefined
+            return undefined;
+        }
+        var oldHead = this.head;
+        // if the length of the list is only one the node is not pointing to anything
+        if(this.length === 1) {
+            this.head = null;
+            this.tail = null;
+        } else {
+            // the current head is now going to be called the "oldHead" and is turning the next node into the new head node
+            this.head = oldHead.next;
+            // breaks the pointer from the new and current head node to the previous head
+            this.head.prev = null;
+            // now it breaks the pointer going to the other side from the original head node to the new head node 
+            oldHead.next = null;
+        }
+        this.length--;
+        return oldHead;
+    }
+    // adds new head
+    unShift(val) {
+        var newNode = new Node(val)
+        // if the list is empty
+        if(this.head === 0) {
+            // make the new node the head
+            this.head = newNode;
+            // make the new node the tail
+            this.tail = newNode;
+        } else {
+            // add the new node to the beginning of the list
+            this.head.prev = newNode;
+            // the previous node is still the head
+            newNode.next = this.head;
+            // the new node is now the head if the list
+            this.head = newNode;
+        }
+        this.length++;
+        return this;
+    } 
+    get(idx) {
+        if(idx < 0 || idx >= this.length) return null;
+        var counter = 0;
+
+        if(idx <= this.length / 2) {
+            var current = this.head;
+            counter++;
+            } else {
+                if(idx > this.length / 2) {
+                    var current = this.tail;
+                    counter++;
+                }
+            }
+        return counter;
     }
 }
