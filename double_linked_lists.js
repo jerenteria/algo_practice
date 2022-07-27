@@ -106,19 +106,29 @@ class DoublyLinkedLists {
         this.length++;
         return this;
     } 
-    get(idx) {
-        if(idx < 0 || idx >= this.length) return null;
-        var counter = 0;
-
-        if(idx <= this.length / 2) {
-            var current = this.head;
-            counter++;
-            } else {
-                if(idx > this.length / 2) {
-                    var current = this.tail;
-                    counter++;
-                }
+    // get certain index of list
+    get(index){
+        // if index is negative or greater than length return null
+        if(index < 0 || index >= this.length) return null;
+        var count, current;
+        // start from beginning
+            // if the index is less than half of the length of the list
+        if(index <= this.length/2){
+            count = 0;
+            current = this.head;
+            while(count !== index){
+                current = current.next;
+                count++;
             }
-        return counter;
+        } else {
+            // start from the end
+            count = this.length - 1;
+            current = this.tail;
+            while(count !== index){
+                current = current.prev;
+                count--;
+            }
+        }
+        return current;
     }
 }
