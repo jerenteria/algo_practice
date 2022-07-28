@@ -131,4 +131,50 @@ class DoublyLinkedLists {
         }
         return current;
     }
+    set(index, val) {
+        // var foundNode is the node at the index we are looking for 
+        // using the get method above
+        var foundNode = this.get(index);
+        // if foundNode is not null
+        if(foundNode != null) {
+            // set the value of the foundNode with the value we are setting
+            foundNode.val = val;
+            // return true
+            return true;
+        }
+        // else return false
+        return false;
+    } 
+    insert(index, val) {
+        // check if index is negative or out of bounds
+        if(index < 0 || index >= this.length) return false;
+        if(index === 0) return !!this.unShift(val);
+        // if the index is the same as the length of list then push new node
+        if(index === this.length) return !!this.push(val);
+
+        // new node
+        var newNode = new Node(val);
+        // get the index of node before the one we are looking for
+        var foundNode = this.get(index - 1);
+        // ex.  A B C D E F
+             // if you try to insert something at idx 3 you will get index 2 due to get(index - 1)
+             // var afterNode is getting you the reference between  C and D
+        var afterNode = beforeNode.next;
+        // beforeNode.next which is what youre inserting becomes the new node
+        beforeNode.next = newNode;
+        // now you are pointing from the newNode back to the node before it
+        // ex. A B C D E F
+            // if you insert Hello at idx 3
+            // A B C Hello D E F
+            // you are now pointing C <-> Hello
+        newNode.prev = beforeNode; 
+        // connecting newNode(Hello) to afterNode(D)
+        // C <- Hello -> D
+        newNode.next = afterNode;
+        // connecting D back to Hello;
+        // C <-> Hello <-> D
+        afterNode.prev = newNode;
+        this.length++;
+        return true;
+    }
 }
