@@ -1,3 +1,11 @@
+// TIME COMPLEXITY
+
+// INSERTION = O(1)
+// REMOVAL = O(1)
+// SEARCHING = O(N)
+// ACCESS = O(N)
+
+
 class Node{
     constructor(val) {
         this.val = val;
@@ -176,5 +184,21 @@ class DoublyLinkedLists {
         afterNode.prev = newNode;
         this.length++;
         return true;
+    }
+    remove(index) {
+        if(index < 0 || index >= length) return undefined;
+        if(index === 0) return this.shift();
+        if(index === this.length - 1) return this.pop();
+
+        var removedNode = this.get(index);
+        // grabs the node being removed and is making the previous node before it connect to the one after it
+        removedNode.prev.next = removedNode.next;
+        // making the connection backwards
+        removedNode.next.prev = removedNode.prev;
+        removedNode.next = null;
+        removedNode.prev = null;
+
+        this.length--;
+        return removedNode;
     }
 }
