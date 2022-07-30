@@ -6,6 +6,12 @@
         // undo/redo
         // routing(web history) is treated like a stack
 
+    // BIG O OF STACKS
+    // INSERTION - O(1)
+    // REMOVAL - O(1)
+    // SEARCHING - O(N)
+    // ACCESS - O(N)
+
 
 // creating a stack with an array using search history as example
 
@@ -23,6 +29,9 @@ class Node {
     
 }
 
+// WERE ADDING TO THE END AND REMOVING FROM THE END
+// NOT CONSTANT TIME REMOVING FROM THE END BC WE HAD TO ITERATE THROUGH THE WHOLE LIST TO GET TO THE SECOND TO LAST ITEM
+// TO SET THAT TO BE THE NEW TAIL  
 
 class Stack{
     constructor() {
@@ -54,3 +63,49 @@ class Stack{
             return temp.value
     }
 }
+
+// QUEUES
+    // data structure that you add data in and remove data 
+    // FIFO: FIRST IN FIRST OUT
+        // waiting in line first people to show up are the first people to go in
+
+// add to the beginning and remove from the end in queue
+// building a queue with an array
+class Node {
+    constructor(value) {
+        this.first = null;
+        this.last = null;
+        this.size;
+    }
+}
+
+class Queue {
+    constructor() {
+        this.first = null;
+        this.last = null;
+        this.size = 0;
+    }
+    enqueue(val) {
+        var newNode = new Node(val);
+        if(!this.first) {
+            this.first = newNode;
+            this.last = newNode;
+        } else {
+            this.last.next = newNode;
+            this.last = newNode;
+        }
+        return ++this.size;
+    }
+    dequeue(val) {
+        if(!this.first) return null;
+
+        var temp = this.first;
+        if(this.first === null.last) {
+            this.last = null;
+        }
+        this.first = this.first.next;
+        this.size--;
+        return temp.value;
+    }
+}
+
