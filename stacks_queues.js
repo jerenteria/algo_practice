@@ -65,10 +65,19 @@ class Stack{
 }
 
 // QUEUES
-    // data structure that you add data in and remove data 
+    // data structure that you add data in and remove data, good for keeping track of order
     // FIFO: FIRST IN FIRST OUT
+        // when printing something the first thing that gets printed is the first thing you print other things get stacked on top
         // waiting in line first people to show up are the first people to go in
 
+
+    // BIG O OF QUEUES
+    // INSERTION - O(1)
+    // REMOVAL - O(1)
+    // SEARCHING - O(N)
+    // ACCESS - O(N)
+
+    
 // add to the beginning and remove from the end in queue
 // building a queue with an array
 class Node {
