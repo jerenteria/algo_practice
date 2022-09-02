@@ -14,3 +14,4 @@ nums.push(4)
 };
 console.log(value());
 
+// create a function
