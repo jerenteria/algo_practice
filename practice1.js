@@ -22,3 +22,6 @@ function isAlmostPalindrome(string1, string2) {
     }
 }
 isAlmostPalindrome('abccba', 'abccfb')
+
+
+// hello
