@@ -107,4 +107,72 @@ tree.insert(20)
 // tree.root.left.right = new Node(9);
 
 
+// TRAVERSING A TREE
+    // BREADTH FIRST SEARCH
+        // START FROM BEGINNING AND GO ACROSS
+        // CREATE A QUEUE(THIS CAN BE AN ARRAY) AND A VARIABLE TO STORE THE VALUES OF NODES LISTED
+        // PLACE THE ROOT NODE IN THE QUEUE
+        // LOOP AS LONG AS THERE IS ANYTHING IN THE QUEUE
+            // DEQUEUE A NODE FROM THE QUEUE AND PUSH VALUE OF THE NODE INTO THE VARIABLE THAT STORES THE NODES
+            // IF THERE IS A LEFT PROPERTY ON THE NODE DEQUEUED- ADD IT TO THE QUEUE
+            // IF THERE IS A RIGHT PROPERTY ON THE NODE DEQUEUED- ADD IT TO THE QUEUE
+        // RETURN THE VARIABLE THAT STORES THE VALUES 
 
+        class BinarySearchTree {
+            constructor() {
+                this.root = null;
+            }
+            BFS() {
+                var node = this.root
+                    data = [],
+                    queue = [];
+                queue.push(this.root);
+                // while there is something in the queue; length is not 0
+                while(queue.length) {
+                    node = queue.shift();
+                    data.push(node);
+                    if(node.left) queue.push(node.left);
+                    if(node.right) queue.push(node.right);
+                }
+                return data;
+            }
+        }
+    
+    // DEPTH FIRST SEARCH:
+        // DFS: IN ORDERD
+            // START FROM THE BOTTOM AND WORK WAY UP
+
+            class BinarySearchTree {
+                constructor() {
+                    this.root = null;
+                }
+
+            }    
+        // DFS: PREORDER
+            // WORK LEFT SIDE FIRST THEN GO RIGHT
+
+            // CREATE A VAR TO STORE THE VALUES OF NODES LISTED
+            // STORE ROOT OF BST IN A VAR CALLED CURRENT
+            // WRITE A HELPER FUNCTION WHICH ACCEPTS A NODE
+                // PUSH VALUE OF NODE TO THE VAR THAT STORES THE VALUES
+                // IF NODE HAS A LEFT PROPERTY CALL HELPER FUNCTION WITH THE LEFT PROPERTY ON THE NODE
+                // IF THE NODE HAS A RIGHT PROPERTY CALL HELPER FUNCTION WITH RIGHT PROPERTY ON THE NODE
+            // INVOKE THE HELPER FUNCTION WITH THE CURRENT VAR
+            // RETURN ARRAY OF VALUES
+            class BinarySearchTree {
+                constructor() {
+                    this.root = null;
+                }
+
+            }        
+
+        // DFS: POSTORDER
+            // START BOTTOM LEFT TO RIGHT AND BACK UP TO TO PARENT
+
+            
+            class BinarySearchTree {
+                constructor() {
+                    this.root = null;
+                }
+
+            }
