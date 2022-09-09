@@ -139,7 +139,7 @@ tree.insert(20)
         }
     
     // DEPTH FIRST SEARCH:
-        // DFS: IN ORDERD
+        // DFS: IN ORDER
             // START FROM THE BOTTOM AND WORK WAY UP
 
             class BinarySearchTree {
@@ -177,12 +177,12 @@ tree.insert(20)
             }        
 
         // DFS: POSTORDER
-            // START BOTTOM LEFT TO RIGHT AND BACK UP TO TO PARENT
-
+            // START AT TOP NODE GO ALL THE WAY TO THE LEFT UNTIL THERE IS NO MORE LEFT NODES, ADD THAT NODE TO THE LIST THEN GO
+            // TO THE RIGHT OF THAT NODE ADD THAT NODE TO THE LIST GO BACK UP; BEFORE REACHING TOP OF LIST GO RIGHT AND DO SAMETHING
             
             class BinarySearchTree {
                 constructor() {
                     this.root = null;
                 }
-
+                
             }
