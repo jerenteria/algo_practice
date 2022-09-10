@@ -108,7 +108,7 @@ tree.insert(20)
 
 
 // TRAVERSING A TREE
-    // BREADTH FIRST SEARCH
+    // BREADTH FIRST SEARCH(better use for wider trees)
         // START FROM BEGINNING AND GO ACROSS
         // CREATE A QUEUE(THIS CAN BE AN ARRAY) AND A VARIABLE TO STORE THE VALUES OF NODES LISTED
         // PLACE THE ROOT NODE IN THE QUEUE
@@ -138,7 +138,7 @@ tree.insert(20)
             }
         }
     
-    // DEPTH FIRST SEARCH:
+    // DEPTH FIRST SEARCH(BETTER USED FOR DEEP TREES): 
         // DFS: IN ORDER
             // START FROM THE BOTTOM AND WORK WAY UP
 
@@ -146,7 +146,16 @@ tree.insert(20)
                 constructor() {
                     this.root = null;
                 }
-
+                DFSInOrder() {
+                    var data = [];
+                    function traverse(node) {
+                        if(node.left) traverse(node.left);
+                        data.push(node.value);
+                        if(node.right) traverse(node.right);
+                    }
+                    traverse(this.root);
+                    return data;
+                }
             }    
         // DFS: PREORDER
             // WORK LEFT SIDE FIRST THEN GO RIGHT
@@ -184,5 +193,13 @@ tree.insert(20)
                 constructor() {
                     this.root = null;
                 }
-                
+                DFSPostOrder() {
+                    var data = [];
+                    function traverse(node) {
+                        if(node.left) traverse(node.left);
+                        if(node.right) traverse(node.right);
+                    }
+                    traverse(this.root);
+                    return data;
+                }
             }
