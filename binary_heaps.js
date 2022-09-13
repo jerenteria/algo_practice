@@ -114,3 +114,5 @@ class MaxBinaryHeap {
 }
 let heap = new MaxBinaryHeap();
 heap.insert(55)
+heap.insert(65)
+heap.insert(38)
