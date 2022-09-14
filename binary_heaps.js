@@ -1,3 +1,14 @@
+// BIG O OF BINARY HEAPS
+    // INSERTION - 0(LOG N)
+    // REMOVAL - 0(LOG N)
+    // SEARCH - 0(N)
+
+
+// BINARY HEAPS ARE VERY USEFUL DATA STRUCTURES FOR SORTING AND IMPLEMENTING OTHER DATA STRUCTURES LIKE PRIORITY QUEUES
+// BINARY HEAPS ARE EITHER MaxBinaryHeaps OR MinBinaryHeaps WITH PARENTS EITHER BEING SMALLER/LARGER THAN THEIR CHILDREN
+// WITH JUST A LITTLE BUT OF MATH WE CAN REPRESENT HEAPS USING ARRAYS
+
+
 // WHAT IS A BINARY HEAP?
     // A TREE STRUCTURE BUT HAS DIFFERENT RULES
     // IN A MAXBINARYHEAP, PARENT NODES ARE ALWAYS LARGER THAN CHILD NODES
@@ -77,34 +88,51 @@ class MaxBinaryHeap {
         const max = this.value[0];
         // pop the last value and store it in var end
         const end = this.values.pop();
-        this.values[0] = end;
-        //bubble down
-        this.sinkDown();
+        // only add it to the beginning of the list and sinkDown if there is something in the list; otherwise leave it empty
+        // if you keep extracting max then dont keep adding the last value to the beginning; let the list be empty
+        if(this.values.length > 0) {
+            // take value at the end that we just popped and put it in the beginning of the list
+            this.values[0] = end;
+            // bubble down
+            this.sinkDown();
+        }
         return max;
     }
     sinkDown() {
+        // start at index 0 because you always want to start at beginning element(root, largest number)
         let idx = 0;
         const length = this.values.length;
         const element = this.values[0];
         while(true) {
+            // find idx of left child
             let leftChildIdx = 2 * idx + 1;
+            // find idx of right child
             let rightChildIdx = 2 * idx + 2;
+            // store val of indexes of leftChild and rightChild
             let leftChild, rightChild;
+            // keep track if we did any swaps; 
             let swap = null;
 
+            // check if left child idx is inbounds 
             if(letftChildIdx < length) {
+                // set the leftChild to be the value at that index
                 leftChild = this.values[leftChildIdx];
+                // if child is > value at idx 0; its going to compare it to all other numbers in list to see where it belongs
                 if(leftChild > element) {
+                    // swap is going to keep track how many times we swapped leftChildIdx
                     swap = leftChildIdx;
                 }
             }
             if(rightChildIdx < length) {
                 rightChild = this.values[rightChildIdx];
+                // if nothing has been swapped and left child was not larger than element or check that the you are swapping witht he largest
+                // # in list not the larger #
                 if((swap === null && rightChild > element) || (swap !== null && rightChild > leftChild)) {
                     swap = rightChildIdx;
                 }
             }
             if(swap === null) break;
+            // do the swap
             this.values[idx] = this.values[swap];
             this.values[swap] = element;
             idx = swap;
@@ -116,3 +144,109 @@ let heap = new MaxBinaryHeap();
 heap.insert(55)
 heap.insert(65)
 heap.insert(38)
+
+
+// PRIORITY QUEUE: A DATA STRUCTURE WHERE EACH ELEMENT HAS A PRIORITY. ELEMENTS WITH HIGHER PRIORITIES ARE RETREIVED BEFORE
+    // ELEMENTS WITH LOWER PRIORITIES
+
+
+
+// WRITE A MIN BINARY HEAP - LOWER NUMBER MEANS HIGHER PRIORITY
+// EACH NODE HAS A VAL AND A PRIORITY. USE THE PRIORITY TO BUILD THE HEAP
+// ENQUEUE METHOD ACCEPTS A VALUE AND PRIORITY, MAKES NEW NODE, AND PUTS IT IN THE RIGHT SPOT BASED OFF OF ITS PRIOTIRY
+// DEQUEUE METHOD REMOVES ROOT ELEMENT, RETURNS IT, AND REARRANGES HEAP USING PRIORITY
+
+class priorityQueue {
+    constructor() {
+        this.values = [];
+    }
+    enqueue(val, priority) {
+        let newNode = new Node(val, priority);
+        this.values.push(newNode);
+        this.bubbleUp();
+    }
+    // move new item to where it belongs
+    bubbleUp() {
+        // keeps tracks of newly added item
+        let idx = this.values.length - 1;
+        // the element is the item of which index we are on
+        const element = this.values[idx];
+        // compare new item value to values in heap
+        while(true) {
+            let parentIdx = Math.floor((idx-1)/2);
+            let parent = this.values[parentIdx];
+            if(element.priority <= parent.priority) break;
+                this.values[parentIdx] = element;
+                this.values[idx] = parent;
+                idx = parentIdx;
+        }
+    }
+    dequeue() {
+        // set var max to be at idx 0 which is always going to be biggest value
+        const max = this.value[0];
+        // pop the last value and store it in var end
+        const end = this.values.pop();
+        // only add it to the beginning of the list and sinkDown if there is something in the list; otherwise leave it empty
+        // if you keep extracting max then dont keep adding the last value to the beginning; let the list be empty
+        if(this.values.length > 0) {
+            // take value at the end that we just popped and put it in the beginning of the list
+            this.values[0] = end;
+            // bubble down
+            this.sinkDown();
+        }
+        return max;
+    }
+    sinkDown() {
+        // start at index 0 because you always want to start at beginning element(root, largest number)
+        let idx = 0;
+        const length = this.values.length;
+        const element = this.values[0];
+        while(true) {
+            // find idx of left child
+            let leftChildIdx = 2 * idx + 1;
+            // find idx of right child
+            let rightChildIdx = 2 * idx + 2;
+            // store val of indexes of leftChild and rightChild
+            let leftChild, rightChild;
+            // keep track if we did any swaps; 
+            let swap = null;
+
+            // check if left child idx is inbounds 
+            if(letftChildIdx < length) {
+                // set the leftChild to be the value at that index
+                leftChild = this.values[leftChildIdx];
+                // if child is > value at idx 0; its going to compare it to all other numbers in list to see where it belongs
+                if(leftChild.priority > element.priority) {
+                    // swap is going to keep track how many times we swapped leftChildIdx
+                    swap = leftChildIdx;
+                }
+            }
+            if(rightChildIdx < length) {
+                rightChild = this.values[rightChildIdx];
+                // if nothing has been swapped and left child was not larger than element or check that the you are swapping witht he largest
+                // # in list not the larger #
+                if((swap === null && rightChild.priority > element.priority) || (swap !== null && rightChild.priority > leftChild.priority)) {
+                    swap = rightChildIdx;
+                }
+            }
+            if(swap === null) break;
+            // do the swap
+            this.values[idx] = this.values[swap];
+            this.values[swap] = element;
+            idx = swap;
+
+        }
+    }
+}
+
+class Node {
+    constructor(val, priority) {
+        this.val = val;
+        this.priority = this.priority;
+    }
+}
+
+let ER = new priorityQueue();
+ER.enqueue("common cold", 1);
+ER.enqueue("gunshot wound", 5);
+ER.enqueue("high fever", 2);
