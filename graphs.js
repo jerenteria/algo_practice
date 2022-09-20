@@ -75,7 +75,25 @@ class Graph {
             }
             delete this.adjacencyList[vertex];
         }
+    depthFirstRecursive(start) {
+        const result = [];
+        const visited = {};
+        const adjacencyList = this.adjacencyList;
+
+        (function dfs(vertex) {
+            if(!vertex) return null;
+            visited[vertex] = true;
+            result.push(vertex);
+            adjacencyList[vertex].forEach(neighbor => {
+                if(!visited[neighbor]) {
+                    return dfs(neighbor)
+                }
+            });
+        })(start)
+        return result;
+    }
 }
+
 
 let g = new Graph();
 g.addVertex("Dallas");
@@ -83,3 +101,33 @@ g.addVertex("Tokyo");
 g.addVertex("Aspen");
 g.addEdge("Dallas", "Tokyo")
 g.addEdge("Dallas", "Aspen")
+
+
+// traversing graphs
+    // traversal: visiting/updating/checking
+    // we need to specify our starting point(no root in graphs)
+
+
+// graph traversal uses
+    // peer to peer networking
+    // web crawlers
+    // finding "closest"
+        // matches/recommendations
+    // shortest path problems
+        // gps navigation
+        // solving mazes
+        // AI (shortest path to win a game)
+
+// depth first search: always visit children before visiting siblings
+
+// depth first traversal
+// the function should accept a starting node
+// create a list to store the end result, to be returned at the very end
+// create an object to store visisted vertices
+// create helper function which accepts a vertex
+    // helper function should return early if the vertex is empty
+    // the helper function should place the vertex it accepts into the visited object and push that vertex into the reult array
+    // loop over all of the values in the adjacencyList for that vertex
+    // if any of those values have not been visited recursively invoke the helper function with that vertex
+// invoke the helper function with the starting vertex
+// return the result array
