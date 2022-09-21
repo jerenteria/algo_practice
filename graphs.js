@@ -48,6 +48,52 @@
         // inside of the loop call our removeEdge() with the vertex we are removing and any values in the adjacency list for that vertex
         // delete the key in the adjacency list for that vertex
 
+
+
+        // traversing graphs
+    // traversal: visiting/updating/checking
+    // we need to specify our starting point(no root in graphs)
+
+
+// graph traversal uses
+    // peer to peer networking
+    // web crawlers
+    // finding "closest"
+        // matches/recommendations
+    // shortest path problems
+        // gps navigation
+        // solving mazes
+        // AI (shortest path to win a game)
+
+// depth first search: always visit children before visiting siblings
+
+// depth first traversal recursive
+    // the function should accept a starting node
+    // create a list to store the end result, to be returned at the very end
+    // create an object to store visited vertices
+    // create helper function which accepts a vertex
+        // helper function should return early if the vertex is empty
+        // the helper function should place the vertex it accepts into the visited object and push that vertex into the reult array
+        // loop over all of the values in the adjacencyList for that vertex
+        // if any of those values have not been visited recursively invoke the helper function with that vertex
+    // invoke the helper function with the starting vertex
+    // return the result array
+
+
+// depth first search traversal iterative
+    // the function should accept a starting node
+    // create a stack to help use keep track if vertices(use a list/array)
+    // create a list to store the end result, to be returned at the very end
+    // create an object to store visited vertices
+    // add the starting vertex to the stack, and mark it visited
+    // while the stack has something in it:
+        // pop the next vetex from the stack
+        // if that vertex hasnt been visited yet:
+            // mark it as visited
+            // add it to the result list
+            // push all of its neighbors into the stack
+    // return the result array
+
 class Graph {
     constructor() {
         this.adjacencyList = {};
@@ -92,42 +138,63 @@ class Graph {
         })(start)
         return result;
     }
+    depthFirstIterative(start) {
+        const stack = [start];
+        const result = [];
+        const visited = {};
+        let currentVertex;
+
+        visited[start] = true;
+        while(stack.length) {
+            currentVertex = stack.pop();
+            result.push(currentVertex);
+
+            this.adjacencyList[currentVertex].forEach(neighbor => {
+                if(!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    stack.push(neighbor) 
+                }
+            });
+        }
+        return result;
+    }
 }
 
 
+// let g = new Graph();
+// g.addVertex("Dallas");
+// g.addVertex("Tokyo");
+// g.addVertex("Aspen");
+// g.addEdge("Dallas", "Tokyo")
+// g.addEdge("Dallas", "Aspen")
+
+
 let g = new Graph();
-g.addVertex("Dallas");
-g.addVertex("Tokyo");
-g.addVertex("Aspen");
-g.addEdge("Dallas", "Tokyo")
-g.addEdge("Dallas", "Aspen")
+
+g.addVertex("A")
+g.addVertex("B")
+g.addVertex("C")
+g.addVertex("D")
+g.addVertex("E")
+g.addVertex("F")
 
 
-// traversing graphs
-    // traversal: visiting/updating/checking
-    // we need to specify our starting point(no root in graphs)
+g.addEdge("A", "B")
+g.addEdge("A", "C")
+g.addEdge("B","D")
+g.addEdge("C","E")
+g.addEdge("D","E")
+g.addEdge("D","F")
+g.addEdge("E","F")
+g.depthFirstRecursive("A")
+
+//          A
+//        /   \
+//       B     C
+//       |     |
+//       D --- E
+//        \   /
+//          F
 
 
-// graph traversal uses
-    // peer to peer networking
-    // web crawlers
-    // finding "closest"
-        // matches/recommendations
-    // shortest path problems
-        // gps navigation
-        // solving mazes
-        // AI (shortest path to win a game)
 
-// depth first search: always visit children before visiting siblings
-
-// depth first traversal
-// the function should accept a starting node
-// create a list to store the end result, to be returned at the very end
-// create an object to store visisted vertices
-// create helper function which accepts a vertex
-    // helper function should return early if the vertex is empty
-    // the helper function should place the vertex it accepts into the visited object and push that vertex into the reult array
-    // loop over all of the values in the adjacencyList for that vertex
-    // if any of those values have not been visited recursively invoke the helper function with that vertex
-// invoke the helper function with the starting vertex
-// return the result array
