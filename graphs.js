@@ -94,6 +94,21 @@
             // push all of its neighbors into the stack
     // return the result array
 
+// breadth first search():
+    // function should accept a starting vertex
+    // create a queue (you can use an array) and place the starting vertex in it
+    // create an array to store nodes visited
+    // create an obj to store nodes visited
+    // mark the starting vertex as visited
+    // loop as long as there is anything in the queue
+    // remove the first vertex from the queue and push it into the array that stores nodes visited 
+    // loop over each vertex in the adjacency list for the vertex you are visiting
+    // loop over each vertex in the adjacency list for the vertex you are visiting
+    // if it is not inside the object that stores nodes visited, mark it as visited and enqueue that vertex
+    // once you have finished looping, return the array of visited nodes
+
+
+
 class Graph {
     constructor() {
         this.adjacencyList = {};
@@ -122,14 +137,21 @@ class Graph {
             delete this.adjacencyList[vertex];
         }
     depthFirstRecursive(start) {
+        // result = list
         const result = [];
+        // visited = object
         const visited = {};
+        // refers to this graph itself
         const adjacencyList = this.adjacencyList;
 
+        // helper function
         (function dfs(vertex) {
             if(!vertex) return null;
+            // once that vertex is visited set it to true
             visited[vertex] = true;
+            // push that vertex to list result
             result.push(vertex);
+            // loop through neightbors with .forEach and repeat dsf() with each one
             adjacencyList[vertex].forEach(neighbor => {
                 if(!visited[neighbor]) {
                     return dfs(neighbor)
@@ -144,15 +166,47 @@ class Graph {
         const visited = {};
         let currentVertex;
 
+        // the start has been visited set it to true
         visited[start] = true;
+        // while there is something in the stack
         while(stack.length) {
+            // set var currentVertex to popped item
             currentVertex = stack.pop();
+            // push current vertex to return at end
             result.push(currentVertex);
 
+            // access the neighbors of the current vertex
             this.adjacencyList[currentVertex].forEach(neighbor => {
                 if(!visited[neighbor]) {
+                    // if it has not been visited then visit the neighbor; set to true
                     visited[neighbor] = true;
+                    // then push neighbor
                     stack.push(neighbor) 
+                }
+            });
+        }
+        return result;
+    }
+    breadthFirst(start) {
+        const queue = [start];
+        const result = [];
+        const visited = {};
+        // mark the starting point as visited and set it to true
+        visited[start] = true;
+        // while there is something in the stack
+        while(queue.length) {
+            // remove the first thing in the queue with shift; shift = pop; first thing in is first thing out in a queue!
+            currentVertex = queue.shift();
+            // push the currentVertex after popping it off
+            result.push(currentVertex);
+
+            // go to all of the currentVertex neighbors
+            this.adjacencyList[currentVertex].forEach(neighbor => {
+                if(!visited[neighbor]) {
+                    // if it has not been visited mark it as visited
+                    visited[neighbor] = true;
+                    // push it into the queue
+                    queue.push(neighbor);
                 }
             });
         }
