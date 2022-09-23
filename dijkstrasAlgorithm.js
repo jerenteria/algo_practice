@@ -17,9 +17,11 @@ class WeightedGraph {
         adjacencyList = {};
     }
     addVertex(vertex) {
-        if(!this.adjacencyList[vertex])  this.adjacencyList[vertex] = [];
+        // if the adjacency list is empty add an empty array
+        if(!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
     }
     addEdge(vertex1, vertex2, weight) {
+        // pushing adjencyList as an object 
         this.adjacencyList.push({node:vertex2, weight});
         this.adjacencyList[vertex2].push({node:vertex1, weight});
     }
