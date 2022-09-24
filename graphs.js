@@ -114,9 +114,9 @@ class Graph {
         this.adjacencyList = {};
     }
     addVertex(vertex) {
-        // if there isnt any dulicates
+        // if there isnt any duplicates
         if(!this.adjacencyList[vertex]){
-            // create an empty array and that vertex
+            // create an empty array at that vertex
             this.adjacencyList[vertex] = [];
         }
     }
