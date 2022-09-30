@@ -48,9 +48,11 @@ function fib2(n, memo=[]) {
 
 function fib3(n) {
     if(n <= 2) return 1;
+    // start first 3 in arr at [0,1,1] since that's how it will always begin
     var fibNums = [0,1,1];
+    // start iterating at index 3 since we already preset the first 2 indeces
     for(var i = 3; i <= n; i++) {
-        fibNums[i] = fibNums[i-1] + fibNums[i-2];
+        fibNums[i] = fibNums[i-1] + fibNums[i-2]; // add last 2 indeces in arr to get new number
     }
     return fibNums;
 }
