@@ -711,3 +711,21 @@ var duplicateZeros = function(arr) {
         }
     }
 };
+
+// 1528. Shuffle String
+// You are given a string s and an integer array indices of the same length. The string s will be shuffled such that the character 
+// at the ith position moves to indices[i] in the shuffled string.
+// Return the shuffled string.
+
+
+var restoreString = function(s, indices) {
+    // create an emptry array
+    const result = [];
+    // loop through string
+    for(let i = 0; i < s.length; i++) {
+        // fill in the empty arr 'result' and arrange the letters with the proper idx
+        result[indices[i]] = s[i]
+    }
+    // return 'result' and join() concats everything in the arry by removing the commas
+    return result.join('');
+};
