@@ -717,7 +717,6 @@ var duplicateZeros = function(arr) {
 // at the ith position moves to indices[i] in the shuffled string.
 // Return the shuffled string.
 
-
 var restoreString = function(s, indices) {
     // create an emptry array
     const result = [];
@@ -728,4 +727,49 @@ var restoreString = function(s, indices) {
     }
     // return 'result' and join() concats everything in the arry by removing the commas
     return result.join('');
+};
+
+
+// 1108. Defanging an IP Address
+// Given a valid (IPv4) IP address, return a defanged version of that IP address.
+// A defanged IP address replaces every period "." with "[.]".
+
+var defangIPaddr = function(address) {
+    // inputing a string so use "" instead of [] b/c its not an array
+    map = "";
+
+    // loop through string
+    for(i = 0; i < address.length; i++) {
+        if(address[i] === ".") {
+            // add [.] 
+            map += "[.]";
+        } else {
+            map += address[i];
+        }
+    }
+    return map;
+};
+
+// 2114. Maximum Number of Words Found in Sentences
+// A sentence is a list of words that are separated by a single space with no leading or trailing spaces.
+// You are given an array of strings sentences, where each sentences[i] represents a single sentence.
+// Return the maximum number of words that appear in a single sentence.
+
+var mostWordsFound = function(sentences) {
+    let max = 0;
+    let temp = 0;
+    for (let i = 0; i < sentences.length; i++) {
+        // if you put a space in between the '' in split(' ') then it will return the whole word itself
+        // if you dont put a space in split('') then it will return the letter itself unlike above
+        // set temp to equal the whole sentence length(basically the whole sentence) and split it into a sub arr
+        temp = sentences[i].split(" ").length;
+        // compares the temp to the max during each loop
+        // if the temp becomes bigger than the max
+        if (temp > max) {
+            // make the temp the new max
+            max = temp;
+        }
+    }
+    // return the max
+    return max;
 };
