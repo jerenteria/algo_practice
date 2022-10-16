@@ -779,12 +779,3 @@ var mostWordsFound = function(sentences) {
 // Each character in stones is a type of stone you have. You want to know how many of the stones you have are also jewels.
 // Letters are case sensitive, so "a" is considered a different type of stone from "A".
 
-function numJewelsInStones(jewels, stones) {
-    map = [];
-    
-    for(i = 0; i < jewels.length; i++) {
-        if(jewels !== stones) {
-            return false;
-        }
-    }
-}
