@@ -774,8 +774,74 @@ var mostWordsFound = function(sentences) {
     return max;
 };
 
-
+// leet code 771. Jewels and Stones
 // You're given strings jewels representing the types of stones that are jewels, and stones representing the stones you have.
 // Each character in stones is a type of stone you have. You want to know how many of the stones you have are also jewels.
 // Letters are case sensitive, so "a" is considered a different type of stone from "A".
 
+var numJewelsInStones = function(J, S) {
+    var sum = 0;
+    for (var i = 0; i < S.length; i++) {
+        var sChar = S[i];
+        for(var j = 0; j < J.length; j++) {
+            var jChar = J[j];
+            if (jChar == sChar) {
+               sum++;
+            }
+        }        
+    }    
+    return sum;
+};
+// 2418. Sort the People
+// Runtime: 135 ms, faster than 65.69% of JavaScript online submissions for Sort the People.
+// Memory Usage: 47.4 MB, less than 38.42% of JavaScript online submissions for Sort the People.
+
+var sortPeople = function(names, heights) {
+    let length = heights.length;
+    let map = new Map();
+    for(let i=0; i<length; i++){
+        map.set(heights[i], names[i]);
+    }
+    heights.sort((a,b) => b-a);
+    let res = [];
+    for(let height of heights){
+        res.push(map.get(height));
+    }
+    return res;
+};
+
+// 1859. Sorting the Sentence
+// A sentence is a list of words that are separated by a single space with no leading or trailing spaces. Each word consists of lowercase and uppercase English letters.
+// A sentence can be shuffled by appending the 1-indexed word position to each word then rearranging the words in the sentence.
+// For example, the sentence "This is a sentence" can be shuffled as "sentence4 a3 is2 This1" or "is2 sentence4 This1 a3".
+// Given a shuffled sentence s containing no more than 9 words, reconstruct and return the original sentence.
+
+
+        // 1. create wordArray by splitting s
+        // 2. create and orderedSentence Array
+        // 3. loop through wordArray
+            // a. get index value by slicing the current word by -1. Then minus 1
+            // b. update orderedSentence[idx] to current word slice(0, -1)
+        // return wordArray
+
+        Input: s = "is2 sentence4 This1 a3"
+        Output: "This is a sentence"
+
+var sortSentence = function(s) {
+    // creat wordArray and split all the words in arr by sperating with commas
+        // wordArray = ["is2", "sentence4", "This1 a3"]
+    const wordArray = s.split(" ");
+    const orderedSentence = [];
+    // loop through wordArray
+    for(let i = 0; i < wordArray.length; i++) {
+        // const idx = get the number at the end of string by using slice() - 1 and minus by 1 b/c we want a 0 index order
+        // returns 2, 4, 1, 3 but we minus by 1 to have 0 index order so it returns 1, 3, 0, 2 
+        const idx = wordArray[i].slice(-1) -1;
+        // put the words in order by the index above then slice it again (0,-1) which returns the words rearranged in order
+            // wordArray = ["is2", "sentence4", "This1 a3"] turns into ["This", "is", "a", "sentence"]
+        orderedSentence[idx] = wordArray[i].slice(0, -1);
+    }
+    // return the orderedSetence with .join(" ") to get rid of the commas
+    // returns ["This" "is" "a" "sentence"]
+    return orderedSentence.join(" ");
+}
