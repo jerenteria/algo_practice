@@ -842,6 +842,6 @@ var sortSentence = function(s) {
         orderedSentence[idx] = wordArray[i].slice(0, -1);
     }
     // return the orderedSetence with .join(" ") to get rid of the commas
-    // returns ["This" "is" "a" "sentence"]
+    // returns ["This is a sentence"]
     return orderedSentence.join(" ");
 }
