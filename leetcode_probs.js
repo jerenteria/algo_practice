@@ -845,3 +845,26 @@ var sortSentence = function(s) {
     // returns ["This is a sentence"]
     return orderedSentence.join(" ");
 }
+
+// 1. Create a new variable for output string
+// 2. Loop through the command
+    // a. If the value is "G" add "G" to the output
+    // b. If the value is "("
+        // i. If the next value is ")" add "a" to the output
+        // ii. else add "al"
+
+var interpret = function(command) {
+    let output = ""
+    for(let i = 0; i < command.length; i++) {
+        if(command[i] === "G") {
+            output += "G";
+        } else if (command[i] === "(") {
+            if(command[i+1] === ")") {
+                output += "o";
+            } else if (command[i+1] === "a") {
+                output += "al";
+            }
+        }
+    }
+    return output;
+};
