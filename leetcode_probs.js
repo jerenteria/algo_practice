@@ -854,13 +854,21 @@ var sortSentence = function(s) {
         // ii. else add "al"
 
 var interpret = function(command) {
+    // make output an empty string
     let output = ""
+    // loop through string
     for(let i = 0; i < command.length; i++) {
+        // if the letter is G
         if(command[i] === "G") {
+            // add G to the empty string
             output += "G";
+            // if command[i] is (
         } else if (command[i] === "(") {
+            // and the next one is )
             if(command[i+1] === ")") {
+                // add an o
                 output += "o";
+                // otherwise just add al
             } else if (command[i+1] === "a") {
                 output += "al";
             }
