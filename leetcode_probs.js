@@ -876,3 +876,39 @@ var interpret = function(command) {
     }
     return output;
 };
+
+// 1221. Split a String in Balanced Strings
+// Balanced strings are those that have an equal quantity of 'L' and 'R' characters.
+// Given a balanced string s, split it into some number of substrings such that:
+// Each substring is balanced.
+// Return the maximum number of balanced strings you can obtain.
+
+// Input: s = "RLRRLLRLRL"
+// Output: 4
+// Explanation: s can be split into "RL", "RRLL", "RL", "RL", each substring contains same number of 'L' and 'R'.
+
+// 1. Create count as output var
+// 2. Create balance var to keep track of a balance string
+// 3. loop through s
+    // a. Create condition to see if current index value is R
+        // i. if R, increment the balance.
+        // ii. else decrement the balance
+    // b. Create condition to see if balance is equal to 0
+        // i. if true, increment the count
+// 4 Return count
+
+var balancedStringSplit = function(s) {
+    let count = 0;
+    let balance = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        if(s[i] === "R") {
+            balance++;
+        } else {
+            balance--;
+        } if (balance === 0) {
+            count++;
+        }
+    }
+    return count;
+};
