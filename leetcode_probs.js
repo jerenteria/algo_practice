@@ -828,8 +828,8 @@ var sortPeople = function(names, heights) {
         Output: "This is a sentence"
 
 var sortSentence = function(s) {
-    // creat wordArray and split all the words in arr by sperating with commas
-        // wordArray = ["is2", "sentence4", "This1 a3"]
+    // create wordArray and split all the words in arr by sperating with commas
+        // wordArray = ["is2", "sentence4", "This1, a3"]
     const wordArray = s.split(" ");
     const orderedSentence = [];
     // loop through wordArray
@@ -919,7 +919,21 @@ var balancedStringSplit = function(s) {
         // Input: s = ["h","e","l","l","o"]
         // Output: ["o","l","l","e","h"]
 
-
+// easy googled how to reverse string and reverse() allows you to reverse the inputted string and add -1 to have it 
+// start from end
 var reverseString = function(s) {  
     s.reverse(-1);
 };
+
+
+// 2108. Find First Palindromic String in the Array
+// Given an array of strings words, return the first palindromic string in the array. If there is no such string, return an empty string "".
+// A string is palindromic if it reads the same forward and backward.
+
+var firstPalindrome = function (words) {
+    for (let i of words) {
+      let d = i.split("").reverse().join("");
+      if (i === d) return d;
+    }
+    return "";
+  };
