@@ -937,3 +937,38 @@ var firstPalindrome = function (words) {
     }
     return "";
   };
+
+
+//   1832. Check if the Sentence Is Pangram
+//   A pangram is a sentence where every letter of the English alphabet appears at least once.
+// Given a string sentence containing only lowercase English letters, return true if sentence is a pangram, or false otherwise.
+
+
+//         Input: sentence = "thequickbrownfoxjumpsoverthelazydog"
+//         Output: true
+//         Explanation: sentence contains at least one of every letter of the English alphabet.
+
+  var checkIfPangram = function(sentence) {
+    // create a new set named alpha
+        // A JavaScript Set is a collection of unique values. Each value can only occur once in a Set. A Set can hold any value of any data type.
+    let alpha = new Set("abcdefghijklmnopqrstuvwxyz")
+
+    // loop through inputed string and switch to lowercase letters 
+    for (let c of sentence.toLowerCase()){
+        // as you loop delete the letters in the set if they match until you the list is empty
+        alpha.delete(c)
+        // if the list is empty that means that every letter in the alphabet is in the str so return true
+        if (alpha.size == 0) return true
+    }
+    return false
+};
+
+
+var fizzBuzz = function(n) {
+    return new Array(n).fill(0).map((v, i) => {
+        if ((i+1) % 15 === 0)  return 'FizzBuzz'
+        if ((i+1) % 3 === 0) return 'Fizz'
+        if ((i+1) % 5 === 0) return 'Buzz'
+        return `${i+1}`
+    })
+};
