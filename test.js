@@ -8,3 +8,4 @@ console.log(words[3])
 // if you dont put a space in split('') then it will return the letter itself unlike above
 const chars = str.split('');
 console.log(chars[8]);
+
