@@ -9,3 +9,25 @@ console.log(words[3])
 const chars = str.split('');
 console.log(chars[8]);
 
+
+// Multi Dimensional Selection
+
+function getMaxProduct(arr) {
+    // Write your code here
+    let maxMin = 0;
+    
+    for(let i = 0; i < arr.length; i++) {
+        let currentMin = 0;
+        for(let j = i + 1; j < arr.length; j++) {
+            currentMin -= arr[i][j];
+            console.log(currentMin);
+            console.log(arr[i]);
+            console.log(arr[j] + "---");
+        }
+
+        if(currentMin > maxMin) {
+            currentMin = maxMin;
+        }
+    }
+    return maxMin;
+}
