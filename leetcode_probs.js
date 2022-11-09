@@ -1150,12 +1150,6 @@ var countKDifference = function(nums, k) {
 };
 
 
-// 1913. Maximum Product Difference Between Two Pairs
-// The product difference between two pairs (a, b) and (c, d) is defined as (a * b) - (c * d).
-// For example, the product difference between (5, 6) and (2, 7) is (5 * 6) - (2 * 7) = 16.
-// Given an integer array nums, choose four distinct indices w, x, y, and z such that the product difference between pairs (nums[w], nums[x]) and (nums[y], nums[z]) is maximized.
-// Return the maximum such product difference
-
 
 // 832. Flipping an Image
 // Given an n x n binary matrix image, flip the image horizontally, then invert it, and return the resulting image.
@@ -1182,4 +1176,34 @@ var flipAndInvertImage = function(image) {
         }
     }
     return image;
+};
+
+// 1313 Decompress Run-Length Encoded List
+// We are given a list nums of integers representing a list compressed with run-length encoding.
+// Consider each adjacent pair of elements [freq, val] = [nums[2*i], nums[2*i+1]] (with i >= 0).  For each such pair, 
+// there are freq elements with value val concatenated in a sublist. 
+// Concatenate all the sublists from left to right to generate the decompressed list.
+// Return the decompressed list.
+
+        // Input: nums = [1,2,3,4]
+        // Output: [2,4,4,4]
+        // Explanation: The first pair [1,2] means we have freq = 1 and val = 2 so we generate the array [2].
+        // The second pair [3,4] means we have freq = 3 and val = 4 so we generate [4,4,4].
+        // At the end the concatenation [2] + [4,4,4] is [2,4,4,4].
+
+
+var decompressRLElist = function(nums) {
+    const result = []
+    
+    // use 2 because we are going in pairs([i] will always be the frequency); jump up 2 and get the next frequency
+    for(let i=0; i < nums.length; i+=2) {
+        // frequency is nums[i]
+        const frequency = nums[i]
+        // value is the value infront of nums[i]
+        const value = nums[i+1]
+        // push into result and create new Array 
+        // (...new Array(frequency) creates the number of slots and .fill(value)) fills in the slots with the value
+        result.push(...new Array(frequency).fill(value));
+    }
+    return result
 };
