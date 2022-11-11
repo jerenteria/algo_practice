@@ -1223,3 +1223,12 @@ var reverseWords = function(s) {
     let reverseWord = word.map(elem => elem.split("").reverse().join(""));
     return reverseWord.join(" ");
 };
+
+var searchInsert = function(nums, target) {
+    for(let i = 0; i < nums.length; i++) {
+        if(nums[i] >= target) {
+            return i;
+        }
+    }
+    return nums.length;
+};
