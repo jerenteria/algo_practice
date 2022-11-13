@@ -1294,22 +1294,36 @@ var pivotIndex = function(nums) {
         // After sorting, it becomes [0,1,9,16,100].
 
 var sortedSquares = function(nums) {
-    let newArr = [];
-    let newSortedArr = [];
-    for(i = 0; i < nums.length; i++) {
-        let newVal = Math.pow(nums[i], 2);
-        newArr.push(newVal);
-        console.log(newArr);
-    }
-    for(let j = 0; j < newArr.length; j++) {
-        for(let k = j + 1; k < newArr.length; k++) {
-            if(nums[j] > nums[k]) {
-                let temp = nums[j];
-                nums[j] = nums[k];
-                nums[k] = temp;
-                newSortedArr.push(temp);
-            }
+    // fill the new result arr with the values
+    const result = new Array(nums.length).fill(0);
+    // start the left pointer at 0
+    let left = 0; 
+    // start the right pointer at the end of arr
+    let right = nums.length - 1;
+    // resultIdx will start filling the results from the end of arr(filling from right to left)
+    let resultIdx = nums.length - 1;
+
+    while(left <= right) {
+        // square the left value and store it in leftVal
+        let leftVal = Math.pow(nums[left], 2);
+        // square the right value and store it in rightVal 
+        let rightVal = Math.pow(nums[right], 2);
+
+        // check if leftVal squared is less than rightVal squared
+        if(leftVal <= rightVal) {
+            // if it is then push the rightVal to resultIdx into the current position in resultIdx arr because we want
+            // the bigger value first since we are going from right to left
+            result[resultIdx] = rightVal;
+            // move the right index down one to the next spot
+            right--;
+        } else {
+            // set our result at our resultIdx to the leftVal
+            result[resultIdx] = leftVal;
+            left++;
         }
+        // keep moving resultIdx down one
+        resultIdx--;
     }
-    return newSortedArr;
+    // return result
+    return result;
 };
