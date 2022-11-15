@@ -1280,9 +1280,6 @@ var solution = function(isBadVersion) {
     };
 };
 
-var pivotIndex = function(nums) {
-    
-};
 
 // 977. Squares of a Sorted Array
 // Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
@@ -1327,3 +1324,4 @@ var sortedSquares = function(nums) {
     // return result
     return result;
 };
+
