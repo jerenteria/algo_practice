@@ -1357,3 +1357,49 @@ var rotate = function(nums, k) {
 
   return nums;
 };
+
+
+// 88. Merge Sorted Array
+// You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n,
+// representing the number of elements in nums1 and nums2 respectively.
+// Merge nums1 and nums2 into a single array sorted in non-decreasing order.
+// The final sorted array should not be returned by the function, but instead be stored inside the array nums1. 
+// To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, 
+// and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
+
+        // Example 1:
+
+        // Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+        // Output: [1,2,2,3,5,6]
+        // Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
+        // The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
+
+var merge = function(nums1, m, nums2, n) {
+    // set the first pointer to be at idx whatever m minues one
+    // [1,2,3,0,0,0] in this case the first pointer would be at idx 2 which has a value of 3
+    let first = m - 1;
+    let second = n - 1;
+    // i would be at idx 5
+    let i = m + n - 1;
+
+    while(second >= 0) {
+        // set fVal to be the first ponter in nums1 arr which in this case would be 3 (m - 1)
+        let fVal = nums1[first];
+        // set sVal to be the second pointer in nums2
+        let sVal = nums2[second];
+        // if the first value is greater than the second value
+        if(fVal > sVal) {
+            // set the the [i] val to be whatver the first value is
+            nums1[i] = fVal;
+            // move [i] down one
+            i--;
+            // move first value down one
+            first--;
+        } else {
+            // if second val is greater just set the [i] value to be whatever the second value is
+            nums1[i] = sVal;
+            i--;
+            second--;
+        }
+    }
+};
