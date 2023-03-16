@@ -1443,7 +1443,7 @@ var maxProfit = function(prices) {
 
         // check if at buyVal - sellVal >= 0
         if(buyVal - sellVal >= 0) {
-            // set sellIdx to buyIdx
+            // set sellIdx to buyIdx(basically just decrementing sellIdx to keep comparing vals)
             sellIdx = buyIdx;
         }
         else {
