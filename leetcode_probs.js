@@ -1455,3 +1455,55 @@ var maxProfit = function(prices) {
     }
     return profit;
 };
+
+// 238. Product of Array Except Self
+// Given an integer array nums, return an array answer such that
+// answer[i] is equal to the product of all the elements of nums except nums[i].
+// The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+// You must write an algorithm that runs in O(n) time and without using the division operation.
+
+    // Example 1:
+
+    // Input: nums = [1,2,3,4]
+    // Output: [24,12,8,6]
+    // Example 2:
+
+    // Input: nums = [-1,1,0,-3,3]
+    // Output: [0,0,9,0,0]
+
+var productExceptSelf = function(nums) {
+    const left = new Array(nums.length).fill(0);
+    left[0] = 1;
+    const right = new Array(nums.length).fill(0);
+    right[right.length - 1] = 1;
+
+    for(let i = 1; i < nums.length; i++) {
+        left[i] = nums[i - 1] * left[i - 1];
+    }
+    for(let i = right.length - 2; i >= 0; i--) {
+        right[i] = nums[i + 1] * right[i + 1];
+    }
+
+    for(let i = 0; i < nums.length; i++) {
+        nums[i] = left[i] * right[i];
+    }
+    return nums;
+};
+
+// 33. Search in Rotated Sorted Array
+// There is an integer array nums sorted in ascending order (with distinct values).
+// Prior to being passed to your function, nums is possibly rotated at an unknown pivot index 
+// k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed).
+// For example, [0,1,2,4,5,6,7] might be rotated at pivot index 3 and become [4,5,6,7,0,1,2].
+// Given the array nums after the possible rotation and an integer target,
+//  return the index of target if it is in nums, or -1 if it is not in nums.
+// You must write an algorithm with O(log n) runtime complexity.
+
+//     Example 1:
+
+//     Input: nums = [4,5,6,7,0,1,2], target = 0
+//     Output: 4
+//     Example 2:
+
+//     Input: nums = [4,5,6,7,0,1,2], target = 3
+//     Output: -1
