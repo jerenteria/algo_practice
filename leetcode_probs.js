@@ -1507,3 +1507,12 @@ var productExceptSelf = function(nums) {
 
 //     Input: nums = [4,5,6,7,0,1,2], target = 3
 //     Output: -1
+
+var search = function(nums, target) {
+    for(let i = 0; i < nums.length; i++) {
+        if(nums[i] === target) {
+            return i;
+        }
+    }
+    return -1;
+};
