@@ -1516,3 +1516,11 @@ var search = function(nums, target) {
     }
     return -1;
 };
+
+
+
+// 15. 3Sum
+
+var threeSum = function(nums) {
+
+};
