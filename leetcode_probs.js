@@ -1522,5 +1522,14 @@ var search = function(nums, target) {
 // 15. 3Sum
 
 var threeSum = function(nums) {
+    let map = [];
+    for(let i = 0; i < nums.length; i++) {
+        let j = nums[i + 1];
+        let k = nums[j + 2];
 
+        if(nums[i] + nums[j] + nums[k] == 0) {
+            map.push(nums[i], nums[j], nums[k])
+        }
+    }
+    return map;
 };
