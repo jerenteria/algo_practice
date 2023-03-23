@@ -1592,11 +1592,14 @@ var threeSum = function(nums) {
 
 
 var maxSubArray = function(nums) {
+    // starting value because in the loop we start at idx 1
     let solution = nums[0];
 
-    // start at 1 bc we cant check whats behind us
+    
     for(let i = 1; i < nums.length; i++) {
+        // nums[i] is the max between nums[i] and nums[i - 1]
         nums[i] = Math.max(nums[i], nums[i] + nums[i - 1])
+        // solution will be either solutuion or nums[i](whichever one is greater)
         solution = Math.max(solution, nums[i]);
     }
     return solution;
