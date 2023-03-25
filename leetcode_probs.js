@@ -1609,3 +1609,13 @@ var maxSubArray = function(nums) {
 // 152. Maximum Product Subarray
 // Given an integer array nums, find a subarray that has the largest product, and return the product.
 // The test cases are generated so that the answer will fit in a 32-bit integer.
+
+var maxProduct = function(nums) {
+    let solution = nums[0];
+
+    for(let i = 1; i < nums.length; i++) {
+        nums[i] = Math.max(nums[i], nums[i] * nums[i - 1]);
+        solution = Math.max(solution, nums[i]);
+    }
+    return solution;
+};
