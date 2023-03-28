@@ -1611,5 +1611,21 @@ var maxSubArray = function(nums) {
 // The test cases are generated so that the answer will fit in a 32-bit integer.
 
 var maxProduct = function(nums) {
+    // the first number in arr is the currently the max and the min bc we havent seen the rest of the # yet
+    let maxTillIndex = [nums[0]];
+    let minTillIndex = [nums[0]];
+    // stat max at 0 to compare to rest of arr
+    let max = nums[0];
 
+    for(let i = 1; i < nums.length; i++) {
+        const num = nums[i];
+
+        maxTillIndex[i] = Math.max(num, num * maxTillIndex[i - 1], num * minTillIndex[i - 1]);
+        // calculate min product up to current index; we do this bc the larget the negative number we get a larget positive number if
+        // one of the input number is also negative(we just want the result from this)
+        minTillIndex[i] = Math.min(num, num * maxTillIndex[i - 1], num * minTillIndex[i - 1]);
+
+        max = Math.max(max, maxTillIndex[i]);
+    }
+    return max;
 };
