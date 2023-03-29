@@ -1629,3 +1629,36 @@ var maxProduct = function(nums) {
     }
     return max;
 };
+
+
+// basically finding the largest area(length * width)
+// the first val gives you the height of the bar and then you have to find the second largest but is also the farthest away 
+// and find how many indexes away it is from your first largest(the length) 
+
+var maxArea = function (height) {
+    let leftPointer = 0;
+    let rightPointer = height.length - 1;
+    let maxAreaCalculated = findArea(leftPointer, rightPointer, height)
+
+    while (leftPointer < rightPointer) {
+        if (height[leftPointer] < height[rightPointer]) {
+            leftPointer++
+        } else {
+            rightPointer--
+        }
+
+        const currentArea = findArea(leftPointer, rightPointer, height)
+        maxAreaCalculated = Math.max(currentArea, maxAreaCalculated)
+    }
+    return maxAreaCalculated
+};
+
+var findArea = function (leftPointer, rightPointer, height) {
+
+    const width = rightPointer - leftPointer
+    const length = Math.min(height[leftPointer], height[rightPointer])
+    const area = width * length;
+    return area
+}
+
+
