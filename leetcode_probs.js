@@ -1630,6 +1630,20 @@ var maxProduct = function(nums) {
     return max;
 };
 
+// 11. Container With Most Water
+
+// You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints 
+// of the ith line are (i, 0) and (i, height[i]).
+// Find two lines that together with the x-axis form a container, such that the container contains the most water.
+// Return the maximum amount of water a container can store.
+// Notice that you may not slant the container.
+
+
+    // Input: height = [1,8,6,2,5,4,8,3,7]
+    // Output: 49
+    // Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case,
+    // the max area of water (blue section) the container can contain is 49.
+
 
 // basically finding the largest area(length * width)
 // the first val gives you the height of the bar and then you have to find the second largest but is also the farthest away 
@@ -1658,7 +1672,34 @@ var findArea = function (leftPointer, rightPointer, height) {
     const width = rightPointer - leftPointer
     const length = Math.min(height[leftPointer], height[rightPointer])
     const area = width * length;
-    return area
+    return area;
 }
+// 191. Number of 1 Bits
 
+// Write a function that takes the binary representation of an unsigned integer 
+// and returns the number of '1' bits it has (also known as the Hamming weight).
 
+//     Example 1:
+
+//     Input: n = 00000000000000000000000000001011
+//     Output: 3
+//     Explanation: The input binary string 00000000000000000000000000001011 has a total of three '1' bits.
+
+// Converting to strings and arrays is slow. We can just manipulate the bits!
+    // Create a count variable with a value of 0.
+    // While the integer is not 0
+    // Check if the last bit is 1. We can use a bitwise AND to check for an odd bit (1) or an even bit (0).
+    // If so, add it to the count.
+    // Chop off the last (farthest right) bit of the integer. JavaScript has 3 bitwise shift operators.
+    // We can use unsigned right shift: int = int >>> 1 or unsigned right shift assignment: int >>>= 1
+    // Return the count
+
+var hammingWeight = function(int) {
+    let count = 0;
+    while (int !== 0) {
+        const bitComparison = int & 1; // 1 & 1 will return 1. 0 & 1 will return 0.
+        if (bitComparison === 1) count++;
+        int >>>= 1; // unsigned right shift assignment (chop off the last bit and assign it)
+    }  
+    return count;
+};
