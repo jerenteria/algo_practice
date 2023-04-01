@@ -65,7 +65,7 @@ isAnagram("anagram","nagaram")
 
 
 // 1365:
-// Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. 
+// Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it.
 // That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
 // Return the answer in an array.
 
@@ -110,12 +110,12 @@ var missingNumber = function(nums) {
 }
 missingNumber([3,0,1])
 
-// 349. 
-// Intersection of Two Arrays: Given two integer arrays nums1 and nums2, return an array of their intersection. 
+// 349.
+// Intersection of Two Arrays: Given two integer arrays nums1 and nums2, return an array of their intersection.
 // Each element in the result must be unique and you may return the result in any order.
 
 var intersection = function(nums1, nums2) {
-    let map = {} 
+    let map = {}
     let result = []
 
     // make a hashmap of the first array of nums
@@ -131,7 +131,7 @@ var intersection = function(nums1, nums2) {
     }
 
     for(let i of nums2) {
-        // if map value is greater than 0 
+        // if map value is greater than 0
         if(map[i] > 0) {
             // push out that value of map
             result.push(i)
@@ -142,10 +142,10 @@ var intersection = function(nums1, nums2) {
     return(result)
 };
 
-// 888. Fair Candy Swap: 
-// Alice and Bob have a different total number of candies. You are given two integer arrays aliceSizes and bobSizes where aliceSizes[i] is 
+// 888. Fair Candy Swap:
+// Alice and Bob have a different total number of candies. You are given two integer arrays aliceSizes and bobSizes where aliceSizes[i] is
 // the number of candies of the ith box of candy that Alice has and bobSizes[j] is the number of candies of the jth box of candy that Bob has.
-// Since they are friends, they would like to exchange one candy box each so that after the exchange, they both have the same total amount of candy. 
+// Since they are friends, they would like to exchange one candy box each so that after the exchange, they both have the same total amount of candy.
 // The total amount of candy a person has is the sum of the number of candies in each box they have.
 // Return an integer array answer where answer[0] is the number of candies in the box that Alice must exchange, and answer[1] is the number of candies
 // in the box that Bob must exchange. If there are multiple answers, you may return any one of them. It is guaranteed that at least one answer exists.
@@ -190,7 +190,7 @@ var fairCandySwap = function(aliceSizes, bobSizes) {
 var mergeTwoLists = function(list1, list2) {
     const dummy = new ListNode(-Infinity);
     let prev = dummy;
-    
+
     // while list 1 and list 2 are true check the values
     while(list1 && list2) {
         if(list1.val <= list2.val) {
@@ -205,7 +205,7 @@ var mergeTwoLists = function(list1, list2) {
     }
     if(!list1) prev.next = list2;
     if(!list2) prev.next = list1;
-    
+
     return dummy.next;
 };
 mergeTwoLists([1,2,4],[1,3,4])
@@ -259,7 +259,7 @@ var deleteDuplicates = function(head) {
     let current = head;
     let prev = dummy;
 
-    // while current is true    
+    // while current is true
     while(current) {
         // if current.val is same as prev.val
         if(current.val === prev.val) {
@@ -272,7 +272,7 @@ var deleteDuplicates = function(head) {
             current = current.next;
         }
     }
-    return dummy.next; 
+    return dummy.next;
 };
 
 // Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
@@ -389,7 +389,7 @@ var sortArrayByParity = function(nums) {
     for(i = 0; i < nums.length; i++) {
         if(nums[i] % 2 == 0) {
             even.push(nums[i]);
-        }     
+        }
         else if(nums[i] % 2 !== 0) {
             odd.push(nums[i]);
         }
@@ -463,7 +463,7 @@ var runningSum = function(nums) {
 };
 
 // 1290. Convert Binary Number in a Linked List to Integer
-// Given head which is a reference node to a singly-linked list. The value of each node in the linked list is either 0 or 1. 
+// Given head which is a reference node to a singly-linked list. The value of each node in the linked list is either 0 or 1.
 // The linked list holds the binary representation of a number.
 // Return the decimal value of the number in the linked list.
 
@@ -471,7 +471,7 @@ var runningSum = function(nums) {
 // output: 5
 // explanation: (101) in base 2 = (5) in base 10
 
-// each number has a place 
+// each number has a place
 // 1            0           1
 // 4s place     2s place    1s place
 // 2^2          2^1         2^0
@@ -507,12 +507,12 @@ var sortArrayByParityII = function(nums) {
             odds.push(nums[i]);
         }
     }
-    
+
     for (let j=0; j < (odds.length+evens.length)/2; j++) {
         solutions.push(evens[j]);
         solutions.push(odds[j]);
     }
-    
+
     return solutions
 };
 
@@ -521,7 +521,7 @@ var sortArrayByParityII = function(nums) {
 // A prefix of a string is a substring that occurs at the beginning of the string.
 // A substring is a contiguous sequence of characters within a string.
 
-// EXAMPLE: 
+// EXAMPLE:
 // Input: words = ["a","b","c","ab","bc","abc"], s = "abc"
 // Output: 3
 // Explanation:
@@ -531,20 +531,20 @@ var sortArrayByParityII = function(nums) {
 
 var countPrefixes = function (words, s) {
     let count = 0;
-  
+
     for (let i = 0; i < words.length; i++) {
       if (s.startsWith(words[i])) {
         count++;
       }
     }
-  
+
     return count;
 };
 
 
-// Leetcode 599. Suppose Andy and Doris want to choose a restaurant for dinner, and they both have a list of favorite restaurants represented by 
-// strings. You need to help them find out their common interest with the least list index sum. 
-// If there is a choice tie between answers, output all of them with no order requirement. 
+// Leetcode 599. Suppose Andy and Doris want to choose a restaurant for dinner, and they both have a list of favorite restaurants represented by
+// strings. You need to help them find out their common interest with the least list index sum.
+// If there is a choice tie between answers, output all of them with no order requirement.
 // You could assume there always exists an answer.
 
     Input: list1 = ["Shogun","Tapioca Express","Burger King","KFC"], list2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
@@ -567,7 +567,7 @@ var findRestaurant = function(list1, list2) {
     return Object.values(map)[0]
 };
 
-// You are given an array items, where each items[i] = [typei, colori, namei] describes the type, color, 
+// You are given an array items, where each items[i] = [typei, colori, namei] describes the type, color,
 // and name of the ith item. You are also given a rule represented by two strings, ruleKey and ruleValue.
 
 // ruleKey == "type" and ruleValue == typei.
@@ -583,7 +583,7 @@ var countMatches = function(items, ruleKey, ruleValue) {
     for(let i = 0; i < items.length; ++i) {
         // set rulekey equal to type
         if(ruleKey === 'type') {
-            // type is set to index 0 in items            
+            // type is set to index 0 in items
             if(ruleValue === items[i][0]) count++;
         }
         else if(ruleKey === 'color') {
@@ -603,7 +603,7 @@ var countMatches = function(items, ruleKey, ruleValue) {
 // --X and X-- decrements the value of the variable X by 1.
 // Initially, the value of X is 0.
 
-// Given an array of strings operations containing a list of operations, 
+// Given an array of strings operations containing a list of operations,
 // return the final value of X after performing all the operations.
 
 var finalValueAfterOperations = function(operations) {
@@ -643,56 +643,56 @@ var moveZeroes = function(nums) {
 // Return an array ans of length nums1.length such that ans[i] is the next greater element as described above.
 var nextGreaterElement = function(nums1, nums2) {
     /*
-    [4,1,2] - nums1 
+    [4,1,2] - nums1
     [1,3,4,2] - nums2
     //iterare over nums2 (as it has all the values)
     //put the first item in the stack
     //when putting next item in stack compare with last item in stack - ex 3>1 = yes then pop 1 and map it to 3  and keep going
-    map 
+    map
     {'1':3,
     '3':4}
-    stack - remaining items 
+    stack - remaining items
     [4, 2]
-    //map the remining items to -1 
+    //map the remining items to -1
     final map
    { '1': 3, '2': -1, '3': 4, '4': -1 }
     //now iterate through nums1 and get the mapping for each element
-    //push into res arr  
+    //push into res arr
    [-1,3,-1]
-    */ 
-    
-    
+    */
+
+
     var stack = [];
     var map = {};
     var res = [];
-    
+
     for (var i = 0; i < nums2.length; i++) {
-        while(stack.length > 0 && nums2[i] > stack[stack.length -1]){          
+        while(stack.length > 0 && nums2[i] > stack[stack.length -1]){
             var lastEl = stack.pop();
             map[lastEl] = nums2[i];
-            
+
         }
-        //first element and elements that are < stack elements 
+        //first element and elements that are < stack elements
         stack.push(nums2[i]);
     }
-    
-    while(stack.length > 0){  
+
+    while(stack.length > 0){
         var remaining = stack.pop();
         map[remaining] = -1;
     }
-    
+
     for(var i=0; i<nums1.length; i++){
         var nums = map[nums1[i]];
         res.push(nums)
     }
-    
+
     return res;
 };
 
 
 // 1089. Duplicate Zeros
 // Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the remaining elements to the right.
-// Note that elements beyond the length of the original array are not written. Do the above modifications to the input array 
+// Note that elements beyond the length of the original array are not written. Do the above modifications to the input array
 // in place and do not return anything.
 
 var duplicateZeros = function(arr) {
@@ -701,7 +701,7 @@ var duplicateZeros = function(arr) {
         // if arr[i] = 0
         if(arr[i] === 0) {
             // splice the array at index i and add a 0
-            // arr.splice(index, 0, item); will insert item into arr at the specified index 
+            // arr.splice(index, 0, item); will insert item into arr at the specified index
             // (deleting 0 items first, that is, it's just an insert).
             arr.splice(i, 0, 0);
             // increase i by one to skip the 0 you just added or else the process will just repeat itself and keep adding 0
@@ -713,7 +713,7 @@ var duplicateZeros = function(arr) {
 };
 
 // 1528. Shuffle String
-// You are given a string s and an integer array indices of the same length. The string s will be shuffled such that the character 
+// You are given a string s and an integer array indices of the same length. The string s will be shuffled such that the character
 // at the ith position moves to indices[i] in the shuffled string.
 // Return the shuffled string.
 
@@ -741,7 +741,7 @@ var defangIPaddr = function(address) {
     // loop through string
     for(i = 0; i < address.length; i++) {
         if(address[i] === ".") {
-            // add [.] 
+            // add [.]
             map += "[.]";
         } else {
             map += address[i];
@@ -788,8 +788,8 @@ var numJewelsInStones = function(J, S) {
             if (jChar == sChar) {
                sum++;
             }
-        }        
-    }    
+        }
+    }
     return sum;
 };
 // 2418. Sort the People
@@ -835,7 +835,7 @@ var sortSentence = function(s) {
     // loop through wordArray
     for(let i = 0; i < wordArray.length; i++) {
         // const idx = get the number at the end of string by using slice() - 1 and minus by 1 b/c we want a 0 index order
-        // returns 2, 4, 1, 3 but we minus by 1 to have 0 index order so it returns 1, 3, 0, 2 
+        // returns 2, 4, 1, 3 but we minus by 1 to have 0 index order so it returns 1, 3, 0, 2
         const idx = wordArray[i].slice(-1) -1;
         // put the words in order by the index above then slice it again (0,-1) which returns the words rearranged in order
             // wordArray = ["is2", "sentence4", "This1 a3"] turns into ["This", "is", "a", "sentence"]
@@ -919,9 +919,9 @@ var balancedStringSplit = function(s) {
         // Input: s = ["h","e","l","l","o"]
         // Output: ["o","l","l","e","h"]
 
-// easy googled how to reverse string and reverse() allows you to reverse the inputted string and add -1 to have it 
+// easy googled how to reverse string and reverse() allows you to reverse the inputted string and add -1 to have it
 // start from end
-var reverseString = function(s) {  
+var reverseString = function(s) {
     s.reverse(-1);
 };
  // BETTER ANSWER- EXPLAINS MORE
@@ -930,10 +930,10 @@ var reverseString2 = function(s) {
     for (let i = 0; i < s.length / 2; i++) {
         // Save current val
         let temp = s[i];
-        
+
         // Replace with end of array char
         s[i] = s[s.length - 1 - i];
-        
+
         // Replace end of array letter with current val
         s[s.length - 1 - i] = temp;
     }
@@ -966,7 +966,7 @@ var firstPalindrome = function (words) {
         // A JavaScript Set is a collection of unique values. Each value can only occur once in a Set. A Set can hold any value of any data type.
     let alpha = new Set("abcdefghijklmnopqrstuvwxyz")
 
-    // loop through inputed string and switch to lowercase letters 
+    // loop through inputed string and switch to lowercase letters
     for (let c of sentence.toLowerCase()){
         // as you loop delete the letters in the set if they match until you the list is empty
         alpha.delete(c)
@@ -1012,7 +1012,7 @@ var fizzBuzz = function(n) {
 
 var truncateSentence = function(s, k) {
     const arr = s.split(" ", k);
-    
+
     return arr.join(" ");
 };
 
@@ -1041,7 +1041,7 @@ var toLowerCase = function(s) {
 
 var numIdenticalPairs = function(nums) {
     pairs = 0;
-    
+
     for(i = 0; i < nums.length; i++) {
 
     }
@@ -1080,14 +1080,14 @@ var maximumWealth = function(accounts) {
 
 // 1431. Kids With the Greatest Number of Candies
 // There are n kids with candies. You are given an integer array candies, where each candies[i] represents the number of candies the ith kid has, and an integer extraCandies, denoting the number of extra candies that you have.
-// Return a boolean array result of length n, where result[i] is true if, after giving the ith kid all the extraCandies, they will have the greatest number of candies among all the kids, or false otherwise.  
+// Return a boolean array result of length n, where result[i] is true if, after giving the ith kid all the extraCandies, they will have the greatest number of candies among all the kids, or false otherwise.
 // Note that multiple kids can have the greatest number of candies.
 
 
         // Example 1:
 
         // Input: candies = [2,3,5,1,3], extraCandies = 3
-        // Output: [true,true,true,false,true] 
+        // Output: [true,true,true,false,true]
         // Explanation: If you give all extraCandies to:
         // - Kid 1, they will have 2 + 3 = 5 candies, which is the greatest among the kids.
         // - Kid 2, they will have 3 + 3 = 6 candies, which is the greatest among the kids.
@@ -1106,7 +1106,7 @@ var kidsWithCandies = function(candies, extraCandies) {
         // push the current value into result and add the extra candies and check if it is greater than or equal to max
         result.push(currentVal + extraCandies >= max)
     }
-    
+
     return result;
 };
 kidsWithCandies([2,3,5,1,3], 3);
@@ -1123,7 +1123,7 @@ kidsWithCandies([2,3,5,1,3], 3);
 
 var numIdenticalPairs = function(nums) {
     pairs = 0;
-    
+
     for(i = 0; i < nums.length; i++) {
         for(j = i + 1; j < nums.length; j++) {
             if(nums[i] === nums[j]) {
@@ -1149,13 +1149,13 @@ var numIdenticalPairs = function(nums) {
         // - [1,2,2,1]
 
 var countKDifference = function(nums, k) {
-    var pairs = 0; 
-     
+    var pairs = 0;
+
      for(let i = 0; i < nums.length; i++) {
          for(let j = i + 1; j < nums.length; j++) {
              let absoluteValue = Math.abs(nums[i] - nums[j]);
              if(absoluteValue === k) {
-                 pairs++;   
+                 pairs++;
              }
          }
      }
@@ -1184,7 +1184,7 @@ var flipAndInvertImage = function(image) {
             if(image[i][j] === 0){
                 image[i][j] = 1;
             }else{
-              image[i][j] = 0;  
+              image[i][j] = 0;
             }
         }
     }
@@ -1193,8 +1193,8 @@ var flipAndInvertImage = function(image) {
 
 // 1313 Decompress Run-Length Encoded List
 // We are given a list nums of integers representing a list compressed with run-length encoding.
-// Consider each adjacent pair of elements [freq, val] = [nums[2*i], nums[2*i+1]] (with i >= 0).  For each such pair, 
-// there are freq elements with value val concatenated in a sublist. 
+// Consider each adjacent pair of elements [freq, val] = [nums[2*i], nums[2*i+1]] (with i >= 0).  For each such pair,
+// there are freq elements with value val concatenated in a sublist.
 // Concatenate all the sublists from left to right to generate the decompressed list.
 // Return the decompressed list.
 
@@ -1207,14 +1207,14 @@ var flipAndInvertImage = function(image) {
 
 var decompressRLElist = function(nums) {
     const result = []
-    
+
     // use 2 because we are going in pairs([i] will always be the frequency); jump up 2 and get the next frequency
     for(let i=0; i < nums.length; i+=2) {
         // frequency is nums[i]
         const frequency = nums[i]
         // value is the value infront of nums[i]
         const value = nums[i+1]
-        // push into result and create new Array 
+        // push into result and create new Array
         // (...new Array(frequency) creates the number of slots and .fill(value)) fills in the slots with the value
         result.push(...new Array(frequency).fill(value));
     }
@@ -1238,7 +1238,7 @@ var reverseWords = function(s) {
 };
 
 // 35. Search Insert Position
-// Given a sorted array of distinct integers and a target value, return the index if the target is found. 
+// Given a sorted array of distinct integers and a target value, return the index if the target is found.
 // If not, return the index where it would be if it were inserted in order.
 // You must write an algorithm with O(log n) runtime complexity.
 
@@ -1257,9 +1257,9 @@ var searchInsert = function(nums, target) {
 };
 
 // 278. First Bad Version
-// You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your 
+// You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your
 // product fails the quality check. Since each version is developed based on the previous version, all the versions
-// after a bad version are also bad. Suppose you have n versions [1, 2, ..., n] and you want to find out the first bad one, 
+// after a bad version are also bad. Suppose you have n versions [1, 2, ..., n] and you want to find out the first bad one,
 // which causes all the following ones to be bad.You are given an API bool isBadVersion(version) which returns whether version is bad.
 // Implement a function to find the first bad version. You should minimize the number of calls to the API.
 
@@ -1307,7 +1307,7 @@ var sortedSquares = function(nums) {
     // fill the new result arr with the values
     const result = new Array(nums.length).fill(0);
     // start the left pointer at 0
-    let left = 0; 
+    let left = 0;
     // start the right pointer at the end of arr
     let right = nums.length - 1;
     // resultIdx will start filling the results from the end of arr(filling from right to left)
@@ -1316,7 +1316,7 @@ var sortedSquares = function(nums) {
     while(left <= right) {
         // square the left value and store it in leftVal
         let leftVal = Math.pow(nums[left], 2);
-        // square the right value and store it in rightVal 
+        // square the right value and store it in rightVal
         let rightVal = Math.pow(nums[right], 2);
 
         // check if leftVal squared is less than rightVal squared
@@ -1376,8 +1376,8 @@ var rotate = function(nums, k) {
 // You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n,
 // representing the number of elements in nums1 and nums2 respectively.
 // Merge nums1 and nums2 into a single array sorted in non-decreasing order.
-// The final sorted array should not be returned by the function, but instead be stored inside the array nums1. 
-// To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, 
+// The final sorted array should not be returned by the function, but instead be stored inside the array nums1.
+// To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged,
 // and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
 
         // Example 1:
@@ -1419,7 +1419,7 @@ var merge = function(nums1, m, nums2, n) {
 
 // 121. Best Time to Buy and Sell Stock
 // You are given an array prices where prices[i] is the price of a given stock on the ith day.
-// You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the 
+// You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the
 // future to sell that stock.
 // Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
 
@@ -1492,7 +1492,7 @@ var productExceptSelf = function(nums) {
 
 // 33. Search in Rotated Sorted Array
 // There is an integer array nums sorted in ascending order (with distinct values).
-// Prior to being passed to your function, nums is possibly rotated at an unknown pivot index 
+// Prior to being passed to your function, nums is possibly rotated at an unknown pivot index
 // k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed).
 // For example, [0,1,2,4,5,6,7] might be rotated at pivot index 3 and become [4,5,6,7,0,1,2].
 // Given the array nums after the possible rotation and an integer target,
@@ -1520,14 +1520,14 @@ var search = function(nums, target) {
 
 
 // 15. 3Sum
-// Given an integer array nums, return all the triplets 
+// Given an integer array nums, return all the triplets
 // [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
 // Notice that the solution set must not contain duplicate triplets.
 
     // Example 1:
     // Input: nums = [-1,0,1,2,-1,-4]
     // Output: [[-1,-1,2],[-1,0,1]]
-    // Explanation: 
+    // Explanation:
     // nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0.
     // nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.
     // nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.
@@ -1595,7 +1595,7 @@ var maxSubArray = function(nums) {
     // starting value because in the loop we start at idx 1
     let solution = nums[0];
 
-    
+
     for(let i = 1; i < nums.length; i++) {
         // nums[i] is the max between nums[i] and nums[i - 1]
         nums[i] = Math.max(nums[i], nums[i] + nums[i - 1])
@@ -1632,7 +1632,7 @@ var maxProduct = function(nums) {
 
 // 11. Container With Most Water
 
-// You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints 
+// You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints
 // of the ith line are (i, 0) and (i, height[i]).
 // Find two lines that together with the x-axis form a container, such that the container contains the most water.
 // Return the maximum amount of water a container can store.
@@ -1646,8 +1646,8 @@ var maxProduct = function(nums) {
 
 
 // basically finding the largest area(length * width)
-// the first val gives you the height of the bar and then you have to find the second largest but is also the farthest away 
-// and find how many indexes away it is from your first largest(the length) 
+// the first val gives you the height of the bar and then you have to find the second largest but is also the farthest away
+// and find how many indexes away it is from your first largest(the length)
 
 var maxArea = function (height) {
     let leftPointer = 0;
@@ -1676,7 +1676,7 @@ var findArea = function (leftPointer, rightPointer, height) {
 }
 // 191. Number of 1 Bits
 
-// Write a function that takes the binary representation of an unsigned integer 
+// Write a function that takes the binary representation of an unsigned integer
 // and returns the number of '1' bits it has (also known as the Hamming weight).
 
 //     Example 1:
@@ -1700,8 +1700,15 @@ var hammingWeight = function(int) {
         const bitComparison = int & 1; // 1 & 1 will return 1. 0 & 1 will return 0.
         if (bitComparison === 1) count++;
         int >>>= 1; // unsigned right shift assignment (chop off the last bit and assign it)
-    }  
+    }
     return count;
 };
+
+// 141. Linked List Cycle
+// Given head, the head of a linked list, determine if the linked list has a cycle in it.
+
+// There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+
+// Return true if there is a cycle in the linked list. Otherwise, return false.
 
 
