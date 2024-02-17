@@ -1772,14 +1772,20 @@ var removeDuplicates = function(nums) {
 // It does not matter what you leave beyond the returned k (hence they are underscores).
 
 var removeElement = function(nums, val) {
+    // start j at and i at index 0
+    // basically if the val at that index is not equal to the val that were looking for then just change the value to itself(basically stay the same)
     let j = 0;
 
     for(i = 0; i < nums.length; i++) {
-        if(nums[i] !== val) {
+        if(nums[i] !== val) { // if nums[i] does === the value were looking for then don't do anything
             nums[j] = nums[i]
             j++;
         }
+        // if nums[i] does === the value were looking for then don't do anything
+        // nums[i] will keep incrementing because it is in the loop but j will stay at that same index
     }
+    // return j because that will tell us how many times j moved up and since all the values that are not equal to the val were looking for
+    // then the amount of times j moved up will be the amount of values that are not equal to the input val that were looking for
     return j;
 };
 
